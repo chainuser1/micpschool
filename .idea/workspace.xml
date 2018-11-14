@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Pareng_Je.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/news/templates/news/details.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/news/templates/news/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/admin.py" afterPath="$PROJECT_DIR$/news/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/models.py" afterPath="$PROJECT_DIR$/news/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/news/details.html" afterPath="$PROJECT_DIR$/news/templates/news/details.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/micpschool/settings.py" afterPath="$PROJECT_DIR$/micpschool/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/micpschool/urls.py" afterPath="$PROJECT_DIR$/micpschool/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/urls.py" afterPath="$PROJECT_DIR$/news/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/views.py" afterPath="$PROJECT_DIR$/news/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="micpschool.iws" />
@@ -64,19 +55,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="details.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/news/details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="8" selection-start="258" selection-end="258" vertical-scroll-proportion="0.5802048">
+            <state line="10" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="-4.730769">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/micpschool/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="33" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-5.862069">
+            <state line="163" column="0" selection-start="4621" selection-end="4621" vertical-scroll-proportion="0.6931408">
               <folding />
             </state>
           </provider>
@@ -85,10 +76,10 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/news/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="8" selection-start="128" selection-end="128" vertical-scroll-proportion="-6.5384617">
+            <state line="21" column="7" selection-start="408" selection-end="408" vertical-scroll-proportion="-13.730769">
               <folding>
-                <marker date="1542179781352" expanded="true" signature="392:407" placeholder="..." />
-                <marker date="1542179781352" expanded="true" signature="392:399" placeholder="..." />
+                <marker date="1542182099584" expanded="true" signature="392:407" placeholder="..." />
+                <marker date="1542182099584" expanded="true" signature="392:399" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -168,9 +159,9 @@
         <option value="$PROJECT_DIR$/news/urls.py" />
         <option value="$PROJECT_DIR$/news/views.py" />
         <option value="$PROJECT_DIR$/news/models.py" />
-        <option value="$PROJECT_DIR$/micpschool/settings.py" />
-        <option value="$PROJECT_DIR$/news/templates/news/index.html" />
         <option value="$PROJECT_DIR$/news/templates/news/details.html" />
+        <option value="$PROJECT_DIR$/news/templates/news/index.html" />
+        <option value="$PROJECT_DIR$/micpschool/settings.py" />
       </list>
     </option>
   </component>
@@ -541,9 +532,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/micpschool/settings.py">
+    <entry file="file://$PROJECT_DIR$/news/apps.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="33" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-5.862069">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -557,18 +548,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="30" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/templates/news/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="7" selection-start="408" selection-end="408" vertical-scroll-proportion="-13.730769">
+          <folding>
+            <marker date="1542182099584" expanded="true" signature="392:407" placeholder="..." />
+            <marker date="1542182099584" expanded="true" signature="392:399" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -580,19 +574,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/news/index.html">
+    <entry file="file://$PROJECT_DIR$/news/templates/news/details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="128" selection-end="128" vertical-scroll-proportion="-6.5384617">
-          <folding>
-            <marker date="1542179781352" expanded="true" signature="392:407" placeholder="..." />
-            <marker date="1542179781352" expanded="true" signature="392:399" placeholder="..." />
-          </folding>
+        <state line="10" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="-4.730769">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/news/details.html">
+    <entry file="file://$PROJECT_DIR$/micpschool/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="258" selection-end="258" vertical-scroll-proportion="0.5802048">
+        <state line="163" column="0" selection-start="4621" selection-end="4621" vertical-scroll-proportion="0.6931408">
           <folding />
         </state>
       </provider>

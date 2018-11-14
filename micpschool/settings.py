@@ -148,21 +148,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 
 PIPELINE_COMPILERS = (
     'pipeline.compilers.less.LessCompiler',
 )
-THIRD_PARTY_APPS = (
-    # 'ckeditor',  # https://github.com/shaunsephton/django-ckeditor#installation
-    # 'crispy_forms',
-    # 'django_countries',  # https://pypi.python.org/pypi/django-countries http://en.wikipedia.org/wiki/ISO_3166-1
-    # 'django_mobile',
-    # 'pipeline',
-    # 'social.apps.django_app.default',  # http://psa.matiasaguirre.net/
-)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -171,20 +164,20 @@ STATICFILES_FINDERS = (
 
 PIPELINE = {
     'PIPELINE_ENABLED': True,
-    'STYLESHEETS':{
+    'STYLESHEETS':{''
+        'bootstrap': {
+            'source_filenames': (
+                'twitter_bootstrap/less/bootstrap.less',
+            ),
+            'output_filename': 'css/b.css',
+            'extra_context': {
+                'media': 'screen,projection',
+            },
+        }
+    },
 
-        'source_filenames': (
-            'twitter_bootstrap/less/bootstrap.less',
-        ),
-        'output_filename': 'css/b.css',
-        'extra_context': {
-            'media': 'screen,projection',
-        },
-},
-
-'JAVASCRIPT': {
-
-
+    'JAVASCRIPT': {
+        'bootstrap': {
         'source_filenames': (
           'twitter_bootstrap/js/transition.js',
           'twitter_bootstrap/js/modal.js',
@@ -200,7 +193,6 @@ PIPELINE = {
           'twitter_bootstrap/js/affix.js',
         ),
         'output_filename': 'js/b.js',
-
-
-  }
+    },
+    }
 }
