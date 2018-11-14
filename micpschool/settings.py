@@ -15,30 +15,35 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+micpschool_less = os.path.join(BASE_DIR, 'micpschool', 'static', 'less')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
+# For apps outside of your project, it's simpler to import them to find their root folders
+import twitter_bootstrap
+bootstrap_less = os.path.join(os.path.dirname(twitter_bootstrap.__file__), 'static', 'less')
+PIPELINE_LESS_ARGUMENTS = u'--include-path={}'.format(os.pathsep.join([bootstrap_less, micpschool_less]))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'news.apps.NewsConfig',
+    'news',
+    'pipeline',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_mysql'
+    'django_mysql',
+    'twitter_bootstrap',
 ]
 
 MIDDLEWARE = [
@@ -144,5 +149,58 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 
+PIPELINE_COMPILERS = (
+    'pipeline.compilers.less.LessCompiler',
+)
+THIRD_PARTY_APPS = (
+    # 'ckeditor',  # https://github.com/shaunsephton/django-ckeditor#installation
+    # 'crispy_forms',
+    # 'django_countries',  # https://pypi.python.org/pypi/django-countries http://en.wikipedia.org/wiki/ISO_3166-1
+    # 'django_mobile',
+    # 'pipeline',
+    # 'social.apps.django_app.default',  # http://psa.matiasaguirre.net/
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+PIPELINE = {
+    'PIPELINE_ENABLED': True,
+    'STYLESHEETS':{
+
+        'source_filenames': (
+            'twitter_bootstrap/less/bootstrap.less',
+        ),
+        'output_filename': 'css/b.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+},
+
+'JAVASCRIPT': {
+
+
+        'source_filenames': (
+          'twitter_bootstrap/js/transition.js',
+          'twitter_bootstrap/js/modal.js',
+          'twitter_bootstrap/js/dropdown.js',
+          'twitter_bootstrap/js/scrollspy.js',
+          'twitter_bootstrap/js/tab.js',
+          'twitter_bootstrap/js/tooltip.js',
+          'twitter_bootstrap/js/popover.js',
+          'twitter_bootstrap/js/alert.js',
+          'twitter_bootstrap/js/button.js',
+          'twitter_bootstrap/js/collapse.js',
+          'twitter_bootstrap/js/carousel.js',
+          'twitter_bootstrap/js/affix.js',
+        ),
+        'output_filename': 'js/b.js',
+
+
+  }
+}

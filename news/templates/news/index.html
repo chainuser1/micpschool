@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load pipeline %}
+
+<head>
+
+  {% stylesheet 'bootstrap' %}
+
+</head>
+<body>
+  {% if latest_news_list %}
+    <ul>
+    {% for news in latest_news_list %}
+        <li><a href="{% url 'details' news.id %}">{{ news.news_title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p class="alert alert-warning">No news are available.</p>
+{% endif %}
+  {% javascript 'bootstrap' %}
+
+</body>
+</html>

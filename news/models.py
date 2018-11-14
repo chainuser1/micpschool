@@ -9,7 +9,7 @@ class News(models.Model):
     pub_date=models.DateTimeField('date published')
     def __str__(self):
         return self.news_title
-    def get_news_body(self):
+    def __str__(self):
         return self.news_body
     def was_published_recently(self):
         return self.pub_date >= timezone.now()-datetime.timedelta(days=1)

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>{{news.news_title}}</h1>
+    <preformatted>Published: {{  news.was_published_recently }}</preformatted>
+    <p>{{ news.news_body  }}</p>
+    {% for news.comments in comments %}
+        
+    {% endfor %}
+</body>
+</html>

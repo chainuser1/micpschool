@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Django default" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="690211e1-cc58-4ae1-a7be-42822edeb9c0">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1/micpschool</jdbc-url>
+    <user-name>root</user-name>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.PyCharm20/config/jdbc-drivers/jna-platform-win-4.4.0.jar!/</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.PyCharm20/config/jdbc-drivers/jna-win-4.4.0.jar!/</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.PyCharm20/config/jdbc-drivers/postgresql-9.4-1201.jdbc4.jar!/</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/.PyCharm20/config/jdbc-drivers/waffle-jna-win-1.8.1.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>
