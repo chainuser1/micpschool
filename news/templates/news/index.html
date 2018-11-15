@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-{% load pipeline %}
+
 
 <head>
-
-  {% stylesheet 'bootstrap' %}
-
+ <title>Latest News</title>
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 </head>
 <body>
-  {% if latest_news_list %}
-    <ul>
-    {% for news in latest_news_list %}
-        <li><a href="{% url 'details' news.id %}">{{ news.news_title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p class="alert alert-warning">No news are available.</p>
-{% endif %}
-  {% javascript 'bootstrap' %}
+   <div class="jumbotron text-center">
+     <h1 class="">Welcome to Tech News</h1>
+   </div>
+   <div clas="container">
+        <div class="row">
+            <div class="col-sm-3">
 
+             <nav class="navbar bg-light">
+             <h3>Latest News</h3>
+              {% if latest_news_list %}
+                        <ul class="navbar nav">
+                            {% for news in latest_news_list %}
+                                <li class="nav-item">
+                                    <a  class="nav-link"  href="{% url 'details' news.id %}">{{ news.news_title }}<span class="badge badge-warning">New</span></a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+              {% else %}
+
+             <p class="text-muted">No news are available.</p>
+
+            {% endif %}
+              </nav>
+            </div>
+            <div class="col-sm-6 alert">
+
+            </div>
+        </div>
+   </div>
+  <script>
+      jQuery(function($) {
+          $(".nav-link").click(function(e){
+              e.preventDefault()
+              $.ajax({
+                url: $(this).attr('href'),
+                type: 'GET',
+                dataType: 'html',
+                success: function(data){
+                    $(".col-sm-6").html(data)
+                }
+              })
+          })
+      });
+  </script>
 </body>
 </html>
