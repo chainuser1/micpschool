@@ -4,11 +4,13 @@
 <head>
  <title>Latest News</title>
 {% load bootstrap4 %}
+{% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
+ <link rel="stylsheet" href="{% static 'css/style.css' %}" />
 </head>
 <body>
-   <div class="jumbotron text-center">
+   <div class="jumbotron text-center" id="jumbo">
      <h1 class="">Welcome to Tech News</h1>
    </div>
    <div clas="container">
@@ -39,7 +41,9 @@
    </div>
   <script>
       jQuery(function($) {
+
           $(".nav-link").click(function(e){
+
               e.preventDefault()
               $.ajax({
                 url: $(this).attr('href'),
@@ -50,6 +54,9 @@
                 }
               })
           })
+{#          $(document).on("contextmenu", function(){#}
+{#                      return false;#}
+{#                  })#}
       });
   </script>
 </body>

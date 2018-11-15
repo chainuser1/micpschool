@@ -15,11 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-micpschool_less = os.path.join(BASE_DIR, 'micpschool', 'static', 'less')
+# micpschool_less = os.path.join(BASE_DIR, 'micpschool', 'static', 'less')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 # For apps outside of your project, it's simpler to import them to find their root folders
-import twitter_bootstrap
+
 #bootstrap_less = os.path.join(os.path.dirname(twitter_bootstrap.__file__), 'static', 'less')
 #PIPELINE_LESS_ARGUMENTS = u'--include-path={}'.format(os.pathsep.join([bootstrap_less, micpschool_less]))
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -149,7 +149,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = 'app/static/'
+STATIC_URL = '/static/'
 # STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 #
 #
@@ -160,8 +160,7 @@ STATIC_URL = 'app/static/'
 #
 #
 #
-# STATICFILES_FINDERS = (
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#     'pipeline.finders.PipelineFinder',
-# )
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)

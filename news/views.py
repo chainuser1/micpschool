@@ -5,7 +5,7 @@ from django_ajax.decorators import ajax
 from django.core import serializers
 # Create your views here.
 def index(request):
-    latest_news_list=News.objects.order_by('pub_date') [:5]
+    latest_news_list=News.objects.order_by('-pub_date') [:5]
     context={
         'latest_news_list':latest_news_list
     }

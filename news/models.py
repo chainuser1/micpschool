@@ -2,13 +2,13 @@ from django.db import models
 from django.utils import timezone
 import datetime
 # Create your models here.
-
+import string
 class News(models.Model):
     news_title=models.CharField(max_length=30)
     news_body=models.CharField(max_length=3000)
     pub_date=models.DateTimeField('date published')
     def __str__(self):
-        return self.news_title
+        return self.news_title.cap_words()
 
     def __str__(self):
         return self.news_body
