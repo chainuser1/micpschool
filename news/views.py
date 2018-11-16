@@ -16,3 +16,10 @@ def details(request, news_id):
     news=get_object_or_404(News,pk=news_id)
     # return {'news': news}
     return render(request, 'news/details.html',{'news':news})
+
+@ajax
+def comment_add(request, news_id):
+    news=get_object_or_404(News, pk=news_id)
+    comment=news.comments_set.create(comment_text=request.POST["comment_text"])
+    return {"comment":comment.comment_text}
+
