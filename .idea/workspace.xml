@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/admin.py" afterPath="$PROJECT_DIR$/exams/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/news/details.html" afterPath="$PROJECT_DIR$/news/templates/news/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/news/index.html" afterPath="$PROJECT_DIR$/news/templates/news/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/urls.py" afterPath="$PROJECT_DIR$/news/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/views.py" afterPath="$PROJECT_DIR$/news/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/models.py" afterPath="$PROJECT_DIR$/exams/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/micpschool/settings.py" afterPath="$PROJECT_DIR$/micpschool/settings.py" />
     </list>
     <ignored path="micpschool.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="92047d22-fde8-46ac-a2b7-4861e4693d09" time="1542351116749" ignored="false" />
+    <file path="/Dummy.txt" changelist="92047d22-fde8-46ac-a2b7-4861e4693d09" time="1542768364808" ignored="false" />
     <file path="/settings.py" changelist="92047d22-fde8-46ac-a2b7-4861e4693d09" time="1542005734966" ignored="false" />
     <file path="/views.py" changelist="92047d22-fde8-46ac-a2b7-4861e4693d09" time="1541982765305" ignored="false" />
     <file path="/urls.py" changelist="92047d22-fde8-46ac-a2b7-4861e4693d09" time="1541982803794" ignored="false" />
@@ -36,28 +36,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="57" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="14" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0">
+            <state line="27" column="0" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -72,19 +54,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news/templates/news/details.html">
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exams/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="1356" selection-end="1356" vertical-scroll-proportion="-11.222222">
+            <state line="1" column="36" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news/templates/news/details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="22" selection-start="941" selection-end="941" vertical-scroll-proportion="-13.730769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exams/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="38" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#25#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exams/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/micpschool/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="4" selection-start="1559" selection-end="1559" vertical-scroll-proportion="0.7362205">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/news/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1631" selection-end="1631" vertical-scroll-proportion="1.0">
+            <state line="56" column="0" selection-start="1631" selection-end="1631" vertical-scroll-proportion="-36.615383">
               <folding />
             </state>
           </provider>
@@ -125,13 +156,15 @@
         <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/app/urls.py" />
         <option value="$PROJECT_DIR$/micpschool/urls.py" />
-        <option value="$PROJECT_DIR$/micpschool/settings.py" />
         <option value="$PROJECT_DIR$/news/static/css/style.css" />
         <option value="$PROJECT_DIR$/news/models.py" />
         <option value="$PROJECT_DIR$/news/urls.py" />
         <option value="$PROJECT_DIR$/news/templates/news/index.html" />
         <option value="$PROJECT_DIR$/news/views.py" />
         <option value="$PROJECT_DIR$/news/templates/news/details.html" />
+        <option value="$PROJECT_DIR$/exams/models.py" />
+        <option value="$PROJECT_DIR$/exams/admin.py" />
+        <option value="$PROJECT_DIR$/micpschool/settings.py" />
       </list>
     </option>
   </component>
@@ -185,6 +218,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micpschool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micpschool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micpschool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micpschool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micpschool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exams" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -192,13 +253,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="appearance" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="appearance" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/python/python.exe" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -266,6 +327,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="micpschool.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -282,6 +344,8 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
     <list size="1">
@@ -315,18 +379,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="0" width="1260" height="728" extended-state="1" />
-    <editor active="false" />
+    <frame x="10" y="0" width="1260" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.049557522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.028318584" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15771812" sideWeight="0.9504425" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28775167" sideWeight="0.67079645" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31543624" sideWeight="0.28596804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922536" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285968" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -398,24 +462,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/news/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="59" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/micpschool/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exams/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/news/tests.py">
@@ -433,44 +482,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/micpschool/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.56889766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.16732283">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="57" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/micpschool/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="40" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/news/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1356" selection-end="1356" vertical-scroll-proportion="-11.222222">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="14" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -491,7 +505,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/news/templates/news/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1631" selection-end="1631" vertical-scroll-proportion="1.0">
+        <state line="56" column="0" selection-start="1631" selection-end="1631" vertical-scroll-proportion="-36.615383">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/templates/news/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="22" selection-start="941" selection-end="941" vertical-scroll-proportion="-13.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="38" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#25#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/micpschool/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="40" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="36" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/micpschool/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="4" selection-start="1559" selection-end="1559" vertical-scroll-proportion="0.7362205">
           <folding />
         </state>
       </provider>

@@ -32,9 +32,8 @@
                       url:$(".form").attr("action"),
                       type:"POST",
                       data: {"news_id":2, "comment_text":"Hello"},
-
                       success: function(data){
-                          $("div#comments").append(data)
+                          $("div#comments").append('<p>'+data+'</p>')
                       }
                   })
               }
