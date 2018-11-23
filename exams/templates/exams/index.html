@@ -30,6 +30,10 @@
                         <input class="form-control mr-sm-2" type="password" placeholder="***************" name="password"/>
                         <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Sign In"/>
                     </form>
+                    {% else %}
+                      <ul class="navbar-nav navbar-right">
+                       <li class="navbar-item"><a class="navbar-link" href="{% url 'sign-out'%}">Sign Out</a></li>
+                      </ul>
                     {% endif %}
                 </div>
          </nav>
