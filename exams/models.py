@@ -17,3 +17,7 @@ class Answer(models.Model):
 
 class Choice(models.Model):
     choice_id=models.ForeignKey(Answer, on_delete=models.CASCADE)
+    choice_ans=models.CharField(max_length=70)
+
+    def __str__(self):
+        return self.choice_ans
