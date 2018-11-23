@@ -12,6 +12,9 @@ def auth(request):
     user = authenticate(username=username, password=password)
     if(user is not None):
         login(request, user)
-        return redirect('exams/index.html')
+        return redirect(request, 'exams/index.html')
     else:
         return redirect('exams/index.html')
+
+def sign_out(request):
+    pass

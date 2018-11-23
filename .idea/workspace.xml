@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exams/templates/exams/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/urls.py" afterPath="$PROJECT_DIR$/exams/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/templates/exams/index.html" afterPath="$PROJECT_DIR$/exams/templates/exams/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/views.py" afterPath="$PROJECT_DIR$/exams/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -57,7 +56,7 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exams/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="46" selection-start="245" selection-end="245" vertical-scroll-proportion="0.3">
+            <state line="8" column="18" selection-start="265" selection-end="265" vertical-scroll-proportion="0.4">
               <folding />
             </state>
           </provider>
@@ -66,9 +65,9 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exams/templates/exams/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="31" selection-start="1989" selection-end="1989" vertical-scroll-proportion="-24.0">
+            <state line="43" column="21" selection-start="2374" selection-end="2374" vertical-scroll-proportion="-11.454545">
               <folding>
-                <marker date="1542942246871" expanded="true" signature="411:2239" placeholder="..." />
+                <marker date="1542943652104" expanded="true" signature="411:2435" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -124,8 +123,8 @@
         <option value="$PROJECT_DIR$/micpschool/settings.py" />
         <option value="$PROJECT_DIR$/exams/models.py" />
         <option value="$PROJECT_DIR$/news/urls.py" />
-        <option value="$PROJECT_DIR$/exams/templates/exams/index.html" />
         <option value="$PROJECT_DIR$/exams/urls.py" />
+        <option value="$PROJECT_DIR$/exams/templates/exams/index.html" />
         <option value="$PROJECT_DIR$/exams/views.py" />
       </list>
     </option>
@@ -596,15 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exams/templates/exams/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="31" selection-start="1989" selection-end="1989" vertical-scroll-proportion="-24.0">
-          <folding>
-            <marker date="1542942246871" expanded="true" signature="411:2239" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exams/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
@@ -612,9 +602,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/exams/templates/exams/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="21" selection-start="2374" selection-end="2374" vertical-scroll-proportion="-11.454545">
+          <folding>
+            <marker date="1542943652104" expanded="true" signature="411:2435" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exams/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="46" selection-start="245" selection-end="245" vertical-scroll-proportion="0.3">
+        <state line="8" column="18" selection-start="265" selection-end="265" vertical-scroll-proportion="0.4">
           <folding />
         </state>
       </provider>
