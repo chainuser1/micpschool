@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MICP Online Assesment</title>
+    {% load bootstrap4 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is an online assesment designed to have students take their exams online.">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+         <nav class="navbar navbar-expand-lg navbar-light  bg-secondary fixed-top">
+                <a class="navbar-brand" href="#">MICP Online Exams</a>
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#Home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Exam Result">Exam Result</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Exam">Take Your Exam Now</a></li>
+                     </ul>
+                   {% if user.is_authenticated ==  False %}
+                    <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'auth' %}" method="post">
+                        {% csrf_token %}
+                        <input class="form-control mr-sm-2" type="text" placeholder="Email Address" name="username"/>
+                        <input class="form-control mr-sm-2" type="password" placeholder="***************" name="password"/>
+                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Sign In"/>
+                    </form>
+                    {% endif %}
+                </div>
+         </nav>
+        <div class="col-lg-12">
+            <div class="jumbotron" data="header">
+                <h1 class="text-center">Welcome, Dear Student!</h1>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
