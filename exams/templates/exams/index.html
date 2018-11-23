@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active"><a class="nav-link" href="#Home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#Exam Result">Exam Result</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="#Exam">Take Your Exam Now</a></li>
                      </ul>
                    {% if user.is_authenticated ==  False %}

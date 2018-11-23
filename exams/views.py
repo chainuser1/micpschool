@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def index(request):
-    return render(request, 'index')
+    return render(request, 'exams/index.html')
 
 def auth(request):
     username = request.POST['username']
@@ -12,10 +12,10 @@ def auth(request):
     user = authenticate(username=username, password=password)
     if(user is not None):
         login(request, user)
-        return redirect(request,'exams/index.html')
+        return redirect('home')
     else:
-        return redirect(request,'exams/index.html')
+        return redirect('home')
 
 def sign_out(request):
     logout(request)
-    return redirect(request,'exams/index.html')
+    return redirect('home')
