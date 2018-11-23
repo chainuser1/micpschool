@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from .models import Question, Answer, Choice
 # Create your views here.
 
 def index(request):
@@ -19,3 +21,8 @@ def auth(request):
 def sign_out(request):
     logout(request)
     return redirect('home')
+
+@login_required(login_url='home')
+def give_exam(request):
+    questions=Question.objects.order_by('-id') [:4]
+    return render(request, 'exams/questionaire.html', {'questions':questions})

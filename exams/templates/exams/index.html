@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MICP Online Assesment</title>
+    {% block title %}<title>MICP Online Assesment</title>{% endblock %}
     {% load bootstrap4 %}
     {% load static %}
     {% bootstrap_css %}
@@ -12,6 +12,7 @@
 <body>
   <div class="container">
     <div class="row">
+      {% block navbar %}
          <nav class="navbar navbar-expand-lg navbar-light  bg-secondary fixed-top">
                 <a class="navbar-brand" href="#">MICP Online Exams</a>
                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,9 +20,9 @@
                 </button>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="#Home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#Exam">Take Your Exam Now</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'questionaire' %}">Take Your Exam Now</a></li>
                      </ul>
                    {% if user.is_authenticated ==  False %}
                     <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'auth' %}" method="post">
@@ -37,6 +38,7 @@
                     {% endif %}
                 </div>
          </nav>
+      {% endblock %}
         <div class="col-lg-12">
             <div class="jumbotron" data="header">
                 <h1 class="text-center">Welcome,
@@ -47,6 +49,9 @@
                     {% endif %}
                 </h1>
             </div>
+        </div>
+        <div class="col-lg-12">
+            {% block content %}{% endblock %}
         </div>
     </div>
   </div>
