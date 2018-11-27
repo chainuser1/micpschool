@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
      'django_ajax',
      'exams',
      'login',
+     'static'
 ]
 
 MIDDLEWARE = [

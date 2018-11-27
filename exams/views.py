@@ -8,6 +8,7 @@ from django.views import generic
 # Create your views here.
 
 def index(request):
+
     return render(request, 'exams/index.html')
 
 def auth(request):
@@ -18,7 +19,7 @@ def auth(request):
         login(request, user)
         return redirect('exams:home')
     else:
-        return redirect('exams:home')
+        return redirect('login:login_do')
 
 def sign_out(request):
     logout(request)
