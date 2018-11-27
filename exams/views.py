@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Question, Answer, Choice
-from django.urls import reverse
 from django.views import generic
 # Create your views here.
 
@@ -11,19 +9,19 @@ def index(request):
 
     return render(request, 'exams/index.html')
 
-def auth(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if(user is not None):
-        login(request, user)
-        return redirect('exams:home')
-    else:
-        return redirect('login:login_do')
-
-def sign_out(request):
-    logout(request)
-    return redirect('exams:home')
+# def auth(request):
+#     username = request.POST['username']
+#     password = request.POST['password']
+#     user = authenticate(username=username, password=password)
+#     if(user is not None):
+#         login(request, user)
+#         return redirect('exams:home')
+#     else:
+#         return redirect('login:login_do')
+#
+# def sign_out(request):
+#     logout(request)
+#     return redirect('exams:home')
 
 # @login_required(login_url='home')
 # def questionaire(request):

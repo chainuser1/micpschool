@@ -9,4 +9,5 @@ app_name="login"
 urlpatterns = [
     path('', views.index, name="login_do"),
     path('lico-auth/',views.auth, name='lico_auth'),
+    path('lico-logout/', views.sign_out, name='lico_logout')
 ]

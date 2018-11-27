@@ -23,7 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #bootstrap_less = os.path.join(os.path.dirname(twitter_bootstrap.__file__), 'static', 'less')
 #PIPELINE_LESS_ARGUMENTS = u'--include-path={}'.format(os.pathsep.join([bootstrap_less, micpschool_less]))
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
+try:
+    if("SECRET_KEY" in os.environ['SECRET_KEY']):
+        SECRET_KEY = os.environ['SECRET_KEY']
+except KeyError:
+        SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

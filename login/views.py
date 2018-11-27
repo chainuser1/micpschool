@@ -15,13 +15,19 @@ def index(request):
 def auth(request):
     username = request.POST['username']
     password = request.POST['password']
+    response=redirect('exams:home')
     user = authenticate(username=username, password=password)
     if(user is not None):
         login(request, user)
         try:
-        if("next" in request.session):
-            return redirect(request.session["next"])
+            if("next" in request.session):
+                response =  redirect(request.session["next"])
         except KeyError:
-            return redirect("exams:home")
+            response = redirect("exams:home")
     else:
-        return redirect("login:login_do")
+        response = redirect("login:login_do")
+    return response
+
+def sign_out(request):
+    logout(request)
+    return redirect("exams:home")
