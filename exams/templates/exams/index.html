@@ -20,12 +20,12 @@
                 </button>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'exams:home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'questionaire' %}">Take Your Exam Now</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'exams:questionaire' %}">Take Your Exam Now</a></li>
                      </ul>
                    {% if user.is_authenticated ==  False %}
-                    <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'auth' %}" method="post">
+                    <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'exams:auth' %}" method="post">
                         {% csrf_token %}
                         <input class="form-control mr-sm-2" type="text" placeholder="Email Address" name="username"/>
                         <input class="form-control mr-sm-2" type="password" placeholder="***************" name="password"/>
@@ -33,7 +33,7 @@
                     </form>
                     {% else %}
                       <ul class="navbar-nav navbar-right">
-                       <li class="navbar-item"><a class="navbar-link" href="{% url 'sign-out'%}">Sign Out</a></li>
+                       <li class="navbar-item"><a class="navbar-link" href="{% url 'exams:sign-out'%}">Sign Out</a></li>
                       </ul>
                     {% endif %}
                 </div>
