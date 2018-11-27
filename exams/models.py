@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Question(models.Model):
@@ -20,6 +20,8 @@ class Answer(models.Model):
 
 class Choice(models.Model):
     choice_id=models.ForeignKey(Question, on_delete=models.CASCADE)
+    user_id=models.IntegerField(max_length=6)
+    user_id=models.ForeignKey(User, on_delete=models.CASCADE)
     choice_ans=models.CharField(max_length=70)
 
     def __str__(self):

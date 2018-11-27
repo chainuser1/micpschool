@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/templates/exams/index.html" afterPath="$PROJECT_DIR$/exams/templates/exams/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/micpschool/settings.py" afterPath="$PROJECT_DIR$/micpschool/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/urls.py" afterPath="$PROJECT_DIR$/exams/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/urls.py" afterPath="$PROJECT_DIR$/login/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/views.py" afterPath="$PROJECT_DIR$/exams/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/views.py" afterPath="$PROJECT_DIR$/login/views.py" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0002_auto_20181121_1229.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0003_auto_20181126_0928.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0004_answer_right_answer.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/models.py" afterPath="$PROJECT_DIR$/exams/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="micpschool.iws" />
@@ -66,15 +65,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/static/login/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="5" selection-start="1621" selection-end="1621" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="animate.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/static/login/vendor/animate/animate.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,11 +74,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="35" selection-start="798" selection-end="798" vertical-scroll-proportion="0.39312977">
+            <state line="14" column="18" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exams/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="44" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="0001_initial.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exams/migrations/0001_initial.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="20" selection-start="238" selection-end="238" vertical-scroll-proportion="-0.63013697">
+              <folding>
+                <element signature="e#49#81#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,7 +155,6 @@
         <option value="$PROJECT_DIR$/news/templates/news/details.html" />
         <option value="$PROJECT_DIR$/exams/admin.py" />
         <option value="$PROJECT_DIR$/news/urls.py" />
-        <option value="$PROJECT_DIR$/exams/models.py" />
         <option value="$PROJECT_DIR$/exams/templates/exams/questionaire.html" />
         <option value="$PROJECT_DIR$/micpschool/urls.py" />
         <option value="$PROJECT_DIR$/login/settings.py" />
@@ -157,6 +166,7 @@
         <option value="$PROJECT_DIR$/exams/views.py" />
         <option value="$PROJECT_DIR$/exams/templates/exams/index.html" />
         <option value="$PROJECT_DIR$/login/views.py" />
+        <option value="$PROJECT_DIR$/exams/models.py" />
       </list>
     </option>
   </component>
@@ -293,6 +303,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="exams" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micpschool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="micpschool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exams" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,9 +492,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.022375215" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920355" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24837133" sideWeight="0.60068846" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3053746" sideWeight="0.6712565" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39931154" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31543624" sideWeight="0.28596804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922536" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -475,7 +504,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -542,19 +570,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/exams/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exams/templates/exams/questionaire.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="52" selection-start="189" selection-end="189" vertical-scroll-proportion="4.3846154" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exams/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="372" selection-end="372" vertical-scroll-proportion="0.39851025" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login/tests.py">
@@ -639,8 +657,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="35" selection-start="798" selection-end="798" vertical-scroll-proportion="0.39312977">
+        <state line="14" column="18" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="44" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="20" selection-start="238" selection-end="238" vertical-scroll-proportion="-0.63013697">
+          <folding>
+            <element signature="e#49#81#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
