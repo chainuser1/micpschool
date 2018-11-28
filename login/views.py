@@ -4,13 +4,13 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def index(request):
+    response = render(request, 'login/index.html')
     try:
         if("next" in request.GET):
             request.session['next']=request.GET["next"]
     except KeyError:
-        return HttpResponse('Unable to redirect your page')
-    finally:
-        return render(request, 'login/index.html')
+        response =  HttpResponse('Unable to redirect your page')
+    return response
 
 def auth(request):
     username = request.POST['username']

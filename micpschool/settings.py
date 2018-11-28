@@ -28,6 +28,8 @@ try:
         SECRET_KEY = os.environ['SECRET_KEY']
 except KeyError:
         SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
+else:
+    SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -70,7 +72,7 @@ ROOT_URLCONF = 'micpschool.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
