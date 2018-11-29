@@ -22,7 +22,17 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'exams:home' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'exams:questionaire' %}">Take Your Exam Now</a></li>
+                            <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Quizzes
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                {% for quiz in quizzes %}
+                                    <a class="dropdown-item" href="{% url 'exams:questionaire' quiz.id %}">{{ quiz.quiz_text }}</a>
+                                    <div class="dropdown-divider"></div>
+                                {% endfor %}
+                            </div>
+                        </div>
                      </ul>
                    {% if user.is_authenticated ==  False %}
                     <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'login:lico_auth' %}" method="post">

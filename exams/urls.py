@@ -5,5 +5,5 @@ from . import views
 app_name='exams'
 urlpatterns=[
     path('',views.index, name='home'),
-    path('questionaire/',views.QuestionaireView.as_view(), name='questionaire')
+    path('<int:category>/questionaire/',views.questionaire, name='questionaire')
 ]

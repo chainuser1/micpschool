@@ -1,38 +1,36 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Question, Answer, Choice
+from .models import Quiz, Question, Answer, Choice
 from django.views import generic
 # Create your views here.
 
 def index(request):
+    quizzes=Quiz.objects.all().distinct()
+    return render(request, 'exams/index.html',{'quizzes':quizzes})
 
-    return render(request, 'exams/index.html')
 
-# def auth(request):
-#     username = request.POST['username']
-#     password = request.POST['password']
-#     user = authenticate(username=username, password=password)
-#     if(user is not None):
-#         login(request, user)
-#         return redirect('exams:home')
-#     else:
-#         return redirect('login:login_do')
+# class QuestionaireView(LoginRequiredMixin,generic.DetailView):
+#     model = Question
+#     login_url = 'login:login_do'
+#     redirect_field_name = "next"
+#     template_name='exams/questionaire.html'
+#     context_object_name='questions'
+#     slug_field="category"
+#     def get_queryset(self):
+#         return get_object_or_404(Question,quiz_id=self.kwargs.get("category"))
 #
-# def sign_out(request):
-#     logout(request)
-#     return redirect('exams:home')
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         """Return a list of quizzes title"""
+#         context['quizzes'] = quizzes=Quiz.objects.all()
+#         return context
 
-# @login_required(login_url='home')
-# def questionaire(request):
-#     questions=Question.objects.order_by('-id') [:4]
-#     return render(request, 'exams/questionaire.html', {'questions':questions})
+@login_required(redirect_field_name='next', login_url = 'login:login_do')
+def questionaire(request, category):
+    quizzes=Quiz.objects.all().distinct()
+    questions = get_object_or_404(Quiz, pk=category).question_set.order_by('id')[:3]
+    return render(request, 'exams/questionaire.html', {'quizzes':quizzes, 'questions':questions})
 
-class QuestionaireView(LoginRequiredMixin,generic.ListView):
-    login_url = 'login:login_do'
-    redirect_field_name = "next"
-    template_name='exams/questionaire.html'
-    context_object_name='questions'
-    def get_queryset(self):
-        """Return the last three published questions."""
-        return Question.objects.order_by('-id')[:3]
+

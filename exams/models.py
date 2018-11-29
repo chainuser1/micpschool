@@ -9,20 +9,21 @@ class Quiz(models.Model):
 
 class Question(models.Model):
     question_text=models.CharField(max_length=120)
-    quiz_id=models.ForeignKey(Quiz, default=0, on_delete=models.CASCADE)
+    quiz=models.ForeignKey(Quiz, default=0, on_delete=models.CASCADE)
     right_answer=models.CharField(max_length=70, default='None')
+    paginate_by = 10
     def __str__(self):
        return self.question_text
 
 class Answer(models.Model):
-    question_id=models.ForeignKey(Question, on_delete=models.CASCADE, default=0)
+    question=models.ForeignKey(Question, on_delete=models.CASCADE, default=0)
     answer_text=models.CharField(max_length=70)
     def __str__(self):
         return self.answer_text
 
 
 class Choice(models.Model):
-    answer_id=models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer=models.ForeignKey(Question, on_delete=models.CASCADE)
     user_id=models.ForeignKey(User, on_delete=models.CASCADE, default=0)
     choice_ans=models.CharField(max_length=70)
     def __str__(self):
