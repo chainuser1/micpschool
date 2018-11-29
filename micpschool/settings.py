@@ -36,6 +36,26 @@ else:
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com']
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": "",
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "SOCKET_CONNECT_TIMEOUT": 5,  # in seconds
+            "SOCKET_TIMEOUT": 5,  # in seconds
+        },
+        "KEY_PREFIX": "example"
+    }
+}
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
 
 # Application definition
@@ -48,7 +68,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django_humanize',
-    'django_mysql',
     'bootstrap4',
      'news',
      'django_ajax',
@@ -178,3 +197,4 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
