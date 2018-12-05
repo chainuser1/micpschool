@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exams/forms.py" />
-      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0002_auto_20181128_1047.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0003_remove_quiz_user_id.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0004_auto_20181129_1124.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/templates/exams/index.html" afterPath="$PROJECT_DIR$/exams/templates/exams/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/models.py" afterPath="$PROJECT_DIR$/exams/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/urls.py" afterPath="$PROJECT_DIR$/exams/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/views.py" afterPath="$PROJECT_DIR$/exams/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login/views.py" afterPath="$PROJECT_DIR$/login/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/forms.py" afterPath="$PROJECT_DIR$/exams/forms.py" />
     </list>
     <ignored path="micpschool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +54,7 @@
       <file leaf-file-name="forms.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exams/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="16" selection-start="526" selection-end="526" vertical-scroll-proportion="0.42270058">
+            <state line="72" column="46" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.5772994">
               <folding />
             </state>
           </provider>
@@ -605,7 +595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exams/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="526" selection-end="526" vertical-scroll-proportion="0.42270058">
+        <state line="72" column="46" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.5772994">
           <folding />
         </state>
       </provider>

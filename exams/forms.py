@@ -68,7 +68,7 @@ class ChoiceForm(object):
                 id_list.append(int(key))
             self.answers = models.Answer.objects.in_bulk(id_list)
             for key in self.answers:
-                new_guess = models.Guess.objects.create(submitted_by=self.user,
+                new_guess = models.Choice.objects.create(submitted_by=self.user,
                                 answer_given=self.answers[key])
                 if self.answers[key].is_correct():
                     score += 1
