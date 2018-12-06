@@ -6,6 +6,7 @@
     {% load static %}
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
+    <link rel="icon" type="image/png" href="{% static "images/micp-site.ico" %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="This is an online assesment designed to have students take their exams online.">
 </head>
@@ -20,7 +21,7 @@
                 </button>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'exams:home' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'master' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
                             <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +54,7 @@
             <div class="jumbotron" data="header">
                 <h1 class="text-center">Welcome,
                     {% if user.is_authenticated %}
-                      {{ user.first_name }}
+                      {{ user.username }}
                     {% else %}
                       Dear Student
                     {% endif %}

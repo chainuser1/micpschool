@@ -14,12 +14,11 @@ class QuizAdmin(admin.ModelAdmin):
 
 class AnswerInline(admin.StackedInline):
     model = Answer
-    extra = 4
+    limit = 4
 
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Your Question Here: ', {'fields':['question_text']}),
-        (None , {'fields': ['right_answer']})
+        ('Your Question Here: ', {'fields':['question_text']})
     ]
     inlines = [AnswerInline]
 
