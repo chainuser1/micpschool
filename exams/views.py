@@ -37,5 +37,7 @@ def questionaire(request, category):
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def save_choices(request):
-    pass
+    if(request.POST):
+
+
 

@@ -12,8 +12,8 @@ class ChoiceForm(object):
         self.data = data
         self.num_of_questions = num_of_questions
         self.quizzes=get_objects_or_404(models.Quiz, quiz_text=type_of_quiz)
-        self.questions = models.Question.objects.none()
-        self.answers = models.Answer.objects.none()
+        self.questions = self.quizzes.question_set.all()
+        self.answers = self.questions.answer_set.all()
         if not self.data:
             # If data is empty then give a list of questions with options
             # There should actually be some shuffling of extracts from the
