@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/forms.py" afterPath="$PROJECT_DIR$/exams/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/models.py" afterPath="$PROJECT_DIR$/exams/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/views.py" afterPath="$PROJECT_DIR$/exams/views.py" />
     </list>
     <ignored path="micpschool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,7 +47,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exams/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1577" selection-end="1577" vertical-scroll-proportion="0.0">
+            <state line="40" column="12" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -55,7 +56,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exams/templates/exams/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="51" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0">
+            <state line="22" column="51" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -79,13 +80,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exams/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.19465649">
+            <state line="14" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#50#93#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exams/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="940" selection-end="940" vertical-scroll-proportion="0.8053435">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,6 +106,17 @@
             <state line="3" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#25#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exams/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="25" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,7 +154,6 @@
         <option value="$PROJECT_DIR$/micpschool/__init__.py" />
         <option value="$PROJECT_DIR$/micpschool/celery.py" />
         <option value="$PROJECT_DIR$/micpschool/settings.py" />
-        <option value="$PROJECT_DIR$/exams/models.py" />
         <option value="$PROJECT_DIR$/exams/admin.py" />
         <option value="$PROJECT_DIR$/exams/urls.py" />
         <option value="$PROJECT_DIR$/micpschool/urls.py" />
@@ -143,8 +163,9 @@
         <option value="$PROJECT_DIR$/login/templates/login/index.html" />
         <option value="$PROJECT_DIR$/exams/templates/exams/index.html" />
         <option value="$PROJECT_DIR$/exams/templates/exams/questionaire.html" />
-        <option value="$PROJECT_DIR$/exams/views.py" />
         <option value="$PROJECT_DIR$/exams/forms.py" />
+        <option value="$PROJECT_DIR$/exams/views.py" />
+        <option value="$PROJECT_DIR$/exams/models.py" />
       </list>
     </option>
   </component>
@@ -557,32 +578,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/login/templates/login/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="71" selection-start="992" selection-end="992" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1544070504404" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="26" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
@@ -597,30 +592,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exams/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="54" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exams/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exams/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="80" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exams/templates/exams/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="51" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -657,20 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exams/templates/exams/questionaire.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="20" selection-start="938" selection-end="938" vertical-scroll-proportion="-10.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exams/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1577" selection-end="1577" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="30" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
@@ -687,12 +647,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/exams/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="25" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exams/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.19465649">
+        <state line="14" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#50#93#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="12" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/templates/exams/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="51" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/templates/exams/questionaire.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="20" selection-start="938" selection-end="938" vertical-scroll-proportion="-10.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exams/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="940" selection-end="940" vertical-scroll-proportion="0.8053435">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -27,4 +27,5 @@ class Answer(models.Model):
 class Choice(models.Model):
     submitted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     answer_given = models.ForeignKey(Answer, on_delete=models.CASCADE)
+    choice_text  = models.CharField(max_length=300, default=None)
 

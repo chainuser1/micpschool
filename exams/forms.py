@@ -4,3 +4,11 @@ from  .models import Quiz, Question, Answer
 
 class ChoiceForm(forms.Form):
 
+   def __init__(self, category):
+       pass
+
+   def clean(self):
+       pass
+
+   def save_choices(self):
+       pass
