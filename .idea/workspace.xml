@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/forms.py" afterPath="$PROJECT_DIR$/exams/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/templates/exams/questionaire.html" afterPath="$PROJECT_DIR$/exams/templates/exams/questionaire.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/views.py" afterPath="$PROJECT_DIR$/exams/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="micpschool.iws" />
@@ -84,10 +82,30 @@
       <file leaf-file-name="forms.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exams/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="16" selection-start="957" selection-end="957" vertical-scroll-proportion="0.71090907">
+            <state line="6" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.19465649">
               <folding>
-                <element signature="e#26#47#0" expanded="true" />
+                <element signature="e#50#93#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#25#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="30" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,9 +142,9 @@
         <option value="$PROJECT_DIR$/login/views.py" />
         <option value="$PROJECT_DIR$/login/templates/login/index.html" />
         <option value="$PROJECT_DIR$/exams/templates/exams/index.html" />
-        <option value="$PROJECT_DIR$/exams/forms.py" />
         <option value="$PROJECT_DIR$/exams/templates/exams/questionaire.html" />
         <option value="$PROJECT_DIR$/exams/views.py" />
+        <option value="$PROJECT_DIR$/exams/forms.py" />
       </list>
     </option>
   </component>
@@ -454,7 +472,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-19" y="13" width="1296" height="744" extended-state="1" />
+    <frame x="-19" y="13" width="1296" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.022375215" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -539,16 +557,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="16" selection-start="868" selection-end="868" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="949" selection-end="949" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/templates/login/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="71" selection-start="992" selection-end="992" vertical-scroll-proportion="0.0">
@@ -663,11 +671,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/login/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="30" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#25#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exams/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="16" selection-start="957" selection-end="957" vertical-scroll-proportion="0.71090907">
+        <state line="6" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.19465649">
           <folding>
-            <element signature="e#26#47#0" expanded="true" />
+            <element signature="e#50#93#0" expanded="true" />
           </folding>
         </state>
       </provider>
