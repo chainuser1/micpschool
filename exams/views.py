@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Quiz, Question, Answer, Choice
 from django.views import generic
-from .forms import ChoiceForm
 # Create your views here.
 
 def index(request):
