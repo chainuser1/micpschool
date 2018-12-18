@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92047d22-fde8-46ac-a2b7-4861e4693d09" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\forms.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0002_auto_20181205_1559.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0003_choice_choice_text.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\laragon\www\micpschool\exams\migrations\0004_auto_20181218_1706.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/models.py" afterPath="$PROJECT_DIR$/exams/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exams/views.py" afterPath="$PROJECT_DIR$/exams/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -45,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exams/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="17" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
+            <state line="7" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="0.22709924">
               <folding />
             </state>
           </provider>
@@ -81,19 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="0003_choice_choice_text.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exams/migrations/0003_choice_choice_text.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exams/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.8053435">
+            <state line="88" column="0" selection-start="3085" selection-end="3085" vertical-scroll-proportion="-13.551724">
               <folding />
             </state>
           </provider>
@@ -159,8 +153,8 @@
         <option value="$PROJECT_DIR$/exams/templates/exams/index.html" />
         <option value="$PROJECT_DIR$/exams/templates/exams/questionaire.html" />
         <option value="$PROJECT_DIR$/exams/forms.py" />
-        <option value="$PROJECT_DIR$/exams/views.py" />
         <option value="$PROJECT_DIR$/exams/models.py" />
+        <option value="$PROJECT_DIR$/exams/views.py" />
       </list>
     </option>
   </component>
@@ -605,13 +599,6 @@
         <state line="16" column="30" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exams/migrations/0003_choice_choice_text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exams/templates/exams/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="51" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0">
@@ -661,16 +648,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exams/views.py">
+    <entry file="file://$PROJECT_DIR$/exams/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="17" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
+        <state line="88" column="0" selection-start="3085" selection-end="3085" vertical-scroll-proportion="-13.551724">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exams/models.py">
+    <entry file="file://$PROJECT_DIR$/exams/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.8053435">
+        <state line="7" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="0.22709924">
           <folding />
         </state>
       </provider>
