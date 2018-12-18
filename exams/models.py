@@ -21,16 +21,16 @@ class Quiz(models.Model):
     def __str__(self):
         return "Quiz {}".format(self.quiz_num_for_student)
 
-class Category(models.Model):
+class ICategory(models.Model):
     """Categories that questions can be in"""
     name = models.CharField(max_length=200, unique=True)
     published = models.BooleanField(default=False)
-    description = models.TextField(default="Description for Category")
+    description = models.TextField(default="Description for ICategory")
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
 
 
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(default=timezone.now)
+    updated = models.DateTimeField()
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -53,15 +53,33 @@ class Category(models.Model):
                 # Truncate the original slug dynamically. Minus 1 for the hyphen.
                 self.slug = "%s-%d" % (orig[:max_length - len(str(x)) - 1], x)
 
-        return super(Category, self).save(*args, **kwargs)
+        return super(ICategory, self).save(*args, **kwargs)
+
 
 class Question(models.Model):
-    question_text=models.TextField()
-    quiz=models.ForeignKey(Quiz, default=0, on_delete=models.CASCADE)
-    paginate_by = 10
+    question_text = models.CharField(max_length=200)
+    title = models.CharField(max_length=120, null=True, blank=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True)
+    icategory = models.ForeignKey(ICategory, related_name='questions', on_delete=models.CASCADE)
+    published = models.BooleanField(default=False)
+    save_for_exam = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            max_length = 200
+            self.slug = orig = slugify(self.question_text)[:max_length]
+
+            for x in itertools.count(1):
+                if not Question.objects.filter(slug=self.slug).exists():
+                    break
+
+                # Truncate the original slug dynamically. Minus 1 for the hyphen.
+                self.slug = "%s-%d" % (orig[:max_length - len(str(x)) - 1], x)
+
+        return super(Question, self).save(*args, **kwargs)
 
     def __str__(self):
-       return self.question_text
+        return self.question_text
 
 class Answer(models.Model):
     question=models.ForeignKey(Question, on_delete=models.CASCADE, default=0, related_name="answers")
@@ -86,3 +104,6 @@ class QuestionResponse(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.ForeignKey(Answer,  on_delete=models.CASCADE)
     attempt_number = models.PositiveSmallIntegerField(blank=True, null=True)
+
+
+

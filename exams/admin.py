@@ -1,14 +1,14 @@
 from django.contrib import admin
-from .models import Question, Answer, Quiz
+from .models import Question, Answer, ICategory
 # Register your models here.
 
 class QuestionInline(admin.StackedInline):
     model = Question
-    extra = 10
+    extra = 4
 
-class QuizAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Your Quiz Category: ', {'fields' : ['quiz_text']})
+        ('Your Quiz Category: ', {'fields' : ['name', 'published','slug', 'description']})
     ]
     inlines = [QuestionInline]
 
@@ -24,6 +24,6 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Quiz, QuizAdmin)
+admin.site.register(ICategory, CategoryAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer)
