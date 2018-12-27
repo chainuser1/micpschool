@@ -2,11 +2,11 @@
 
 {% load bootstrap4 %}
 {% block content %}
-    <h5>Questionaire</h5>
+    <h5>Questionaire:  <span class="font-italic ">{{ type }}</span></h5>
 
     {% if questions %}
-    <form>
-        {{  form }}
+    <form class="form" method="post">
+        {% csrf_token  %}
         <div class="alert alert-info alert-dismissible fade show" role="alert">
             <strong>Good Luck!</strong> Please answer the questions carefully. Choosse the correct answer.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -15,7 +15,7 @@
         </div>
         {% for question in questions %}
             <p>{{ question.question_text }}</p>
-            {% for answer in question.answer_set.all %}
+            {% for answer in question.answers.all %}
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="{{ question.id }}" value="{{ answer.answer_text }}"> {{ answer.answer_text }}<br></label>
                 </div>

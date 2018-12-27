@@ -7,10 +7,11 @@ from django.views import generic
 # Create your views here.
 
 def get_categories():
-    return ICategory.objects.all().distinct()
+    return ICategory.objects.all()
 
 def index(request):
-    return render(request, 'exams/index.html',{'categories':get_categories()})
+    categories = get_categories()
+    return render(request, 'exams/index.html',{'categories':categories})
 
 
 # class QuestionaireView(LoginRequiredMixin,generic.DetailView):
@@ -30,9 +31,12 @@ def index(request):
 #         return context
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
-def questionaire(request, ICategories):
-    questions = get_object_or_404(Quiz, quiz_text=ICategories).question_set.order_by('id')[:3]
-    return render(request, 'exams/questionaire.html', {'categories':get_categories(), 'questions':questions})
+def questionaire(request, slug):
+    categories = get_categories()
+    questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:3]
+    type=get_object_or_404(ICategory, slug=slug).name
+    context= {'categories':categories, 'questions':questions, 'type':type}
+    return render(request, 'exams/questionaire.html', context)
 
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')

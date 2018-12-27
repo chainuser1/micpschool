@@ -6,10 +6,10 @@ class QuestionInline(admin.StackedInline):
     model = Question
     extra = 4
 
-class CategoryAdmin(admin.ModelAdmin):
-    fieldsets = [
-        ('Your Quiz Category: ', {'fields' : ['name', 'published','slug', 'description']})
-    ]
+class ICategoryAdmin(admin.ModelAdmin):
+#     fieldsets = [
+#         ('Your Quiz Category: ', {'fields' : ['name', 'published','slug', 'description']})
+#     ]
     inlines = [QuestionInline]
 
 class AnswerInline(admin.StackedInline):
@@ -24,6 +24,6 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(ICategory, CategoryAdmin)
+admin.site.register(ICategory,ICategoryAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer)
