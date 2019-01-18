@@ -14,7 +14,7 @@
             </button>
         </div>
         {% for question in questions %}
-            <p>{{ question.question_text }}</p>
+            <p class = "text-primary">{{ question.question_text }}</p>
             {% for answer in question.answers.all %}
                 <div class="radio">
                     <label class="radio-inline"><input type="radio" name="{{ question.id }}" value="{{ answer.answer_text }}"> {{ answer.answer_text }}<br></label>

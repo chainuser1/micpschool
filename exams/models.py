@@ -87,6 +87,7 @@ class Answer(models.Model):
     correct = models.BooleanField(default=False)
 
     class Meta:
+        verbose_name = "Answers"
         unique_together = [
             #one unique answer for each question
             ('question', 'answer_text')
