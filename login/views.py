@@ -24,6 +24,8 @@ def index(request):
                     response =  redirect(request.session["next"])
             except KeyError:
                 response = redirect("exams:home")
+    else: 
+        response = render(request, 'login/index.html', {'form':LoginForm(request.POST)})
     return response
 
 def auth(request):
