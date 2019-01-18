@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 # Create your views here.
 
 def index(request):
@@ -31,7 +31,7 @@ def index(request):
 def auth(request):
     username = request.POST['username']
     password = request.POST['password']
-    response=redirect('exams:home')
+    response = redirect('exams:home')
     user = authenticate(username=username, password=password)
     if(user is not None):
         login(request, user)
@@ -47,3 +47,20 @@ def auth(request):
 def sign_out(request):
     logout(request)
     return redirect("exams:home")
+
+
+def register(request):
+    form = RegisterForm(request.POST or None)
+    if(request.POST and form.is_valid()):
+        form.save()
+        username = request.cleaned_data.get('username')
+        password = request.cleaned_data.get('password1')
+        user = authenticate(username, password)
+        login(request, user)
+        return redirect(request.session["next"] or 'home')
+    else: 
+        form = RegisterForm(request.POST)
+    return render(request, 'login/register.html', {'form':form})
+    
+def store(request):
+    pass
