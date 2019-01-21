@@ -58,7 +58,9 @@ def register(request):
         user = authenticate(username=username, password=password)
         login(request, user)
         if("next" in request.session):
-                response =  redirect(request.session["next"])
+            redirect(request.session["next"])
+        else:
+            redirect('home')
     else: 
         form = RegisterForm(request.POST)
     return render(request, 'login/register.html', {'form':form})
