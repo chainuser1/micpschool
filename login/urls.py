@@ -11,5 +11,5 @@ urlpatterns = [
     path('lico-auth/',views.auth, name='lico_auth'),
     path('lico-logout/', views.sign_out, name='lico_logout'),
     path('auth-register', views.register, name='lico_register'),
-    path('auth-create-lico', views.store, name='lico_store'),
+    # path('auth-create-lico', views.store, name='lico_store'),
 ]

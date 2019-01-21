@@ -7,7 +7,7 @@ from .forms import LoginForm, RegisterForm
 def index(request):
     #instantiate
     form=LoginForm(request.POST or None)
-    response = render(request, 'login/index.html', {'form':form})
+    response = render(request, 'login/login.html', {'form':form})
     #get the redirection page
     try:
         if("next" in request.GET):
@@ -25,7 +25,7 @@ def index(request):
             except KeyError:
                 response = redirect("exams:home")
     else: 
-        response = render(request, 'login/index.html', {'form':LoginForm(request.POST)})
+        response = render(request, 'login/login.html', {'form':LoginForm(request.POST)})
     return response
 
 def auth(request):
@@ -62,5 +62,3 @@ def register(request):
         form = RegisterForm(request.POST)
     return render(request, 'login/register.html', {'form':form})
     
-def store(request):
-    pass
