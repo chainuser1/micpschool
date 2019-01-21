@@ -1,0 +1,76 @@
+{% extends 'login/index.html'%}
+{% block title %}<title>Academy: Sign Up</title>{% endblock %}
+{% block content %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form action='{% url "login:lico_register" %}' method="POST">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-21">
+						Register
+					</span>
+					<span class="login100-form-title p-b-20">
+						<i class="zmdi zmdi-font">CADEMY</i>
+					</span>
+					<div class="form-group wrap-input100 validate-input">
+						<label for="examInputUsername">Username</label>
+						{{form.username}}
+						{% if form.username.errors %}
+						   <span class="text-left text-danger">{{form.username.errors}}</span>
+						{% endif %}
+					</div>
+					<div class="form-group wrap-input100 validate-input">
+						<label for="examInputFirstName">First Name</label>
+						{{form.first_name}}
+						{% if form.first_name.errors %}
+						   <span class="text-left text-danger">{{form.first_name.errors}}</span>
+						{% endif %}
+					</div>
+					<div class="form-group wrap-input100 validate-input">
+						<label for="examInputLastName">Last Name</label>
+						{{form.last_name}}
+						{% if form.last_name.errors %}
+						   <span class="text-left text-danger">{{form.last_name.errors}}</span>
+						{% endif %}
+					</div>
+					<div class="form-group wrap-input100 validate-input">
+						<label for="examInputEmail1">Email address</label>
+						{{form.email}}
+						{% if form.email.errors %}
+						   <span class="text-left text-danger">{{form.email.errors}}</span>
+						{% endif %}
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					</div>
+					<div class="form-group wrap-input100 validate-input">
+						<label for="examInputPassword1">Password</label>
+						{{form.password1}}
+						{% if form.password1.errors %}
+						   <span class="text-left text-danger">{{form.password1.errors}}</span>
+						{% endif %}
+					</div>
+					<div class="form-group wrap-input100 validate-input">
+						<label for="examInputPassword1">Confirm Password</label>
+						{{form.password2}}
+						{% if form.password2.errors %}
+						   <span class="text-left text-danger">{{form.password2.errors}}</span>
+						{% endif %}
+					</div>
+					<div class="form-check wrap-input100 validate-input">
+						<input type="checkbox" class="form-check-input" id="examleCheck1">
+						<label class="form-check-label" for="examCheck1">Check me out</label>
+					</div>
+					<button type="submit" class="btn btn-primary">Register</button>
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							Already have an account?
+						</span>
+
+						<a class="txt2" href="{% url 'login:login_do' %}">
+							Login
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

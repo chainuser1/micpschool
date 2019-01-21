@@ -53,11 +53,12 @@ def register(request):
     form = RegisterForm(request.POST or None)
     if(request.POST and form.is_valid()):
         form.save()
-        username = request.cleaned_data.get('username')
-        password = request.cleaned_data.get('password1')
-        user = authenticate(username, password)
+        username = request.POST["username"]
+        password = request.POST["password1"]
+        user = authenticate(username=username, password=password)
         login(request, user)
-        return redirect(request.session["next"] or 'home')
+        if("next" in request.session):
+                response =  redirect(request.session["next"])
     else: 
         form = RegisterForm(request.POST)
     return render(request, 'login/register.html', {'form':form})
