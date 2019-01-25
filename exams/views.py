@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from .models import ICategory, Quiz, Question, Answer, QuestionResponse
 from django.views import generic
 # Create your views here.
@@ -34,6 +35,9 @@ def index(request):
 def questionaire(request, slug):
     categories = get_categories()
     questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:3]
+    user = User.objects.get(id=request.user.id)
+    quiz = Quiz(student=user)
+    quiz.save()
     type=get_object_or_404(ICategory, slug=slug).name
     context= {'categories':categories, 'questions':questions, 'type':type}
     return render(request, 'exams/questionaire.html', context)

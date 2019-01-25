@@ -12,9 +12,6 @@ class Quiz(models.Model):
     complete = models.BooleanField(default=False)
     final_score = models.DecimalField(blank=True, null=True, decimal_places=2, max_digits=5)
 
-    created = models.DateTimeField(default=timezone.now)
-    updated = models.DateTimeField()
-
     class Meta:
         verbose_name_plural = 'Quizzes'
 
@@ -103,8 +100,8 @@ class QuestionResponse(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="responses", null=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice = models.ForeignKey(Answer,  on_delete=models.CASCADE)
-    attempt_number = models.PositiveSmallIntegerField(blank=True, null=True)
+    answer = models.ForeignKey(Answer,  on_delete=models.CASCADE)
+    # attempt_number = models.PositiveSmallIntegerField(blank=True, null=True)
 
 
 
