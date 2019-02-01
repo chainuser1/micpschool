@@ -36,8 +36,6 @@ def questionaire(request, slug):
     categories = get_categories()
     questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:3]
     user = User.objects.get(id=request.user.id)
-    quiz = Quiz(student=user)
-    quiz.save()
     type=get_object_or_404(ICategory, slug=slug).name
     context= {'categories':categories, 'questions':questions, 'type':type}
     return render(request, 'exams/questionaire.html', context)

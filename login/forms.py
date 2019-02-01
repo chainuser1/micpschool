@@ -4,9 +4,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=17,error_messages={'required': 'Please let us know what to call you!'},
+    username = forms.CharField(max_length=17,error_messages={'required': 'Invalid username!'},
                                widget=forms.TextInput(attrs={'class': "input100"}))
-    password = forms.CharField(max_length=17,error_messages={'required': 'Please type in the corect password'},widget=forms.PasswordInput(attrs={'class': "input100"}))
+    password = forms.CharField(max_length=17,error_messages={'required': 'Password might be incorrect'},widget=forms.PasswordInput(attrs={'class': "input100"}))
 
     def clean(self):
         username = self.cleaned_data.get('username')
