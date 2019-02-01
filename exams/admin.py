@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ICategory, Question, Answer, Quiz, QuestionResponse
+from .models import ICategory, Question, Answer, QuestionResponse
 from django.contrib.auth.models import User
 import csv
 import datetime
