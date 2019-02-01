@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .models import ICategory, Quiz, Question, Answer, QuestionResponse
+from .models import ICategory, Question, Answer, QuestionResponse
 from django.views import generic
 # Create your views here.
 
