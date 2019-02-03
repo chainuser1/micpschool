@@ -25,7 +25,7 @@ class ICategory(models.Model):
     description = models.TextField(default="Description for ICategory")
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
     created = models.DateTimeField(default=timezone.now)
-    updated = models.DateTimeField()
+    updated = models.DateTimeField(default=timezone.now)
 
     class Meta:
         verbose_name_plural = 'Categories'
