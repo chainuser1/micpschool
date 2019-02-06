@@ -1,39 +1,52 @@
 {% extends 'exams/index.html' %}
-
-{% load bootstrap4 %}
 {% block content %}
     <h5>Questionaire:  <span class="font-italic ">{{ type }}</span></h5>
-
     {% if questions %}
-    <form class="form" method="post">
-        {% csrf_token  %}
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <strong>Good Luck!</strong> Please answer the questions carefully. Choosse the correct answer.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <form class="form" method="get">
+            {{formset.management_form}}
+            {% csrf_token  %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>Good Luck!</strong> Please answer the questions carefully. Choosse the correct answer.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% for question in questions %}
-            <p class = "text-primary">{{ question.question_text }}</p>
-            {% for answer in question.answers.all %}
-                <div class="radio">
-                    <label class="radio-inline"><input type="radio" name="{{ question.id }}" value="{{ answer.answer_text }}"> {{ answer.answer_text }}<br></label>
+                </button>
+            </div>
+            {% for question in questions %}
+                <p class = "text-primary">{{ question.question_text }}</p>
+                <div class="form-group">
+                    {% for answer in question.answers.all %}    
+                        <label class="radio-inline"><input type="radio" name="{{question.id}}" value="{{ answer.answer_text }}"> {{ answer.answer_text }}<br></label>
+                        <br>
+                    {% endfor %}
+                    {% for form in formset %}
+                       {{form.answer }}
+                    {% endfor %}
                 </div>
+                <hr/>
             {% endfor %}
-        {% endfor %}
-        <div class="division separator"></div>
-        {% buttons %}
-            <input type="submit" class="btn btn-primary " name="submit" value="Submit Answers" />
-            <input type="submit" class="btn btn-secondary " name="reset" value="Reset" />
-        {% endbuttons %}
-     </form>
-     {% else %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>No Questions!</strong> Please check with your teacher for this inconvenience.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    {% endif %}
-
+            <div class="btn-group">
+                <input type="submit" class="btn btn-primary " name="submit" value="Submit Answers" />
+                <input type="submit" class="btn btn-secondary " name="reset" value="Reset" />
+            </div>
+        
+    </form>
+    
+{% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>No Questions!</strong> Please check with your teacher for this inconvenience.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+<script type="text/javascript">
+        $(function(){
+            var radioObj=$("input[type='radio']");
+            radioObj.change(function(){
+                answer_data=$(this).val();
+                $(this).parents().siblings('.answer').val(answer_data);
+                console.log()
+            })
+        })
+</script>
 {% endblock %}

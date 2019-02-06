@@ -2,21 +2,22 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.utils import timezone
+import itertools
 # Create your models here.
 
-# class Quiz(models.Model):
-#     student = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-#     quiz_num_for_student = models.IntegerField(default=0)
-#     #question_ids = models.TextField(default=None)
-#     num_questions = models.IntegerField(null=True)
-#     complete = models.BooleanField(default=False)
-#     final_score = models.DecimalField(blank=True, null=True, decimal_places=2, max_digits=5)
+class Quiz(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    quiz_num_for_student = models.IntegerField(default=0)
+    #question_ids = models.TextField(default=None)
+    num_questions = models.IntegerField(null=True)
+    complete = models.BooleanField(default=False)
+    final_score = models.DecimalField(blank=True, null=True, decimal_places=2, max_digits=5)
 
-#     class Meta:
-#         verbose_name_plural = 'Quizzes'
+    class Meta:
+        verbose_name_plural = 'Quizzes'
 
-#     def __str__(self):
-#         return "Quiz {}".format(self.quiz_num_for_student)
+    def __str__(self):
+        return "Quiz {}".format(self.quiz_num_for_student)
 
 class ICategory(models.Model):
     """Categories that questions can be in"""

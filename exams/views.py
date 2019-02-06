@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .models import ICategory, Question, Answer, QuestionResponse
 from django.views import generic
+from django.forms import modelformset_factory
+from .forms import QuestionResponseForm
 # Create your views here.
 
 def get_categories():
@@ -34,17 +36,19 @@ def index(request):
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def questionaire(request, slug):
     categories = get_categories()
-    questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:3]
-    user = User.objects.get(id=request.user.id)
+    questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:10]
     type=get_object_or_404(ICategory, slug=slug).name
-    context= {'categories':categories, 'questions':questions, 'type':type}
+    formset =  modelformset_factory(QuestionResponse, QuestionResponseForm)
+    context= {'categories':categories, 'questions':questions, 'type':type, 'formset':formset}
+
     return render(request, 'exams/questionaire.html', context)
 
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def save_choices(request):
-    if(request.POST):
-        pass
+    pass
+
+
 
 
 

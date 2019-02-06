@@ -1,70 +1,78 @@
 <!DOCTYPE html>
 <html>
-<head>
-    {% block title %}<title>MICP Online Assesment</title>{% endblock %}
-    {% load bootstrap4 %}
-    {% load static %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-    <link rel="icon" type="image/png" href="{% static "images/micp-site.ico" %}"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="This is an online assesment designed to have students take their exams online.">
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      {% block navbar %}
-         <nav class="navbar navbar-expand-lg navbar-light  bg-secondary fixed-top">
+  <head>
+    {% block assets %}
+      {% block title %}<title>MICP Online Assesment</title>{% endblock %}
+      {% load static %}
+      <link rel="icon" type="image/png" href="{% static "images/micp-site.ico" %}"/>
+      <link rel="stylesheet" type="text/css" href={% static "css/bootstrap-grid.min.css" %} />
+      <link rel="stylesheet" type="text/css" href={% static "css/bootstrap-reboot.min.css" %} />
+      <link rel="stylesheet" type="text/css" href={% static "css/bootstrap.min.css" %} />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="This is an online assesment designed to have students take their exams online.">
+      {%endblock%}
+    </head>
+    <body>
+      {% block scripts %}
+        <script type="text/javascript" src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+      {%endblock%}
+        
+        <div class="container">
+          <div class="row">
+            {% block navbar %}
+              <nav class="navbar navbar-expand-lg navbar-light  bg-secondary fixed-top">
                 <a class="navbar-brand" href="#">MICP Online Exams</a>
-                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'master' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
-                            <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Quizzes
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                {% for category in categories %}
-                                    <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
-                                    <div class="dropdown-divider"></div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                     </ul>
-                   {% if user.is_authenticated ==  False %}
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'master' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Quizzes
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        {% for category in categories %}
+                          <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
+                          <div class="dropdown-divider"></div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </ul>
+                  {% if user.is_authenticated ==  False %}
                     <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'login:lico_auth' %}" method="post">
-                        {% csrf_token %}
-                        <input class="form-control mr-sm-2" type="text" placeholder="Email Address" name="username"/>
-                        <input class="form-control mr-sm-2" type="password" placeholder="***************" name="password"/>
-                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Sign In"/>
+                      {% csrf_token %}
+                      <input class="form-control mr-sm-2" type="text" placeholder="Email Address" name="username"/>
+                      <input class="form-control mr-sm-2" type="password" placeholder="***************" name="password"/>
+                      <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Sign In"/>
                     </form>
-                    {% else %}
-                      <ul class="navbar-nav navbar-right">
-                       <li class="navbar-item"><a class="navbar-link" href="{% url 'login:lico_logout'%}">Sign Out</a></li>
-                      </ul>
-                    {% endif %}
+                  {% else %}
+                    <ul class="navbar-nav navbar-right">
+                      <li class="navbar-item"><a class="navbar-link" href="{% url 'login:lico_logout'%}">Sign Out</a></li>
+                    </ul>
+                  {% endif %}
                 </div>
-         </nav>
-      {% endblock %}
-        <div class="col-lg-12">
-            <div class="jumbotron" data="header">
+              </nav>
+            {% endblock %}
+            <div class="col-lg-12">
+              <div class="jumbotron" data="header">
                 <h1 class="text-center">Welcome,
-                    {% if user.is_authenticated %}
-                      {{ user.username }}
-                    {% else %}
-                      Dear Student
-                    {% endif %}
+                {% if user.is_authenticated %}
+                  {{ user.username }}
+                {% else %}
+                  Dear Student
+                {% endif %}
                 </h1>
+              </div>
             </div>
+            <div class="col-lg-12">
+              {% block content %}{% endblock %}
+            </div>
+          </div>
         </div>
-        <div class="col-lg-12">
-            {% block content %}{% endblock %}
-        </div>
-    </div>
-  </div>
-</body>
-</html>
+      </body>
+    </html>
