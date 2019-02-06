@@ -15,11 +15,9 @@
                 <p class = "text-primary">{{ question.question_text }}</p>
                 <div class="form-group">
                     {% for answer in question.answers.all %}    
-                        <label class="radio-inline"><input type="radio" name="{{question.id}}" value="{{ answer.answer_text }}"> {{ answer.answer_text }}<br></label>
-                        <br>
                     {% endfor %}
                     {% for form in formset %}
-                       {{form.answer }}
+                       {{form}}
                     {% endfor %}
                 </div>
                 <hr/>

@@ -4,15 +4,15 @@ from django.forms import ModelForm, formset_factory
 from .models import QuestionResponse, Answer, Question
 class QuestionResponseForm(ModelForm):
 
-	answer=forms.CharField(required=True,max_length=10,widget=forms.TextInput(attrs={'class':'answer',
-		'disabled':'disabled', 'value':''}))
+	answer=forms.ModelChoiceField(queryset=None,widget=forms.RadioSelect(attrs={'class':'radio'}))
 	def __init__(self,*args, **kwargs):
 		super(QuestionResponseForm, self).__init__(*args, **kwargs)
-		# request = kwargs.pop('request', None)
-	
+		request = kwargs.pop('request', None)
+		self.fields['answer'].queryset = Answer.objects.all()
+		
 	class Meta:
 		model=QuestionResponse
-		fields = ['answer']
+		exclude = ()
 		
     
 

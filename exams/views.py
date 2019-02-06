@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .models import ICategory, Question, Answer, QuestionResponse
 from django.views import generic
-from django.forms import modelformset_factory
+from django.forms import inlineformset_factory
 from .forms import QuestionResponseForm
 # Create your views here.
 
@@ -38,7 +38,7 @@ def questionaire(request, slug):
     categories = get_categories()
     questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:10]
     type=get_object_or_404(ICategory, slug=slug).name
-    formset =  modelformset_factory(QuestionResponse, QuestionResponseForm)
+    formset =  inlineformset_factory(Answer, QuestionResponse,form=QuestionResponseForm)
     context= {'categories':categories, 'questions':questions, 'type':type, 'formset':formset}
 
     return render(request, 'exams/questionaire.html', context)
