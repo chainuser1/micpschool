@@ -38,7 +38,8 @@ def questionaire(request, slug):
     categories = get_categories()
     questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:10]
     type=get_object_or_404(ICategory, slug=slug).name
-    formset =  inlineformset_factory(Answer, QuestionResponse,form=QuestionResponseForm)
+    form=QuestionResponseForm
+    formset =  inlineformset_factory(Answer, QuestionResponse,form=form)
     context= {'categories':categories, 'questions':questions, 'type':type, 'formset':formset}
 
     return render(request, 'exams/questionaire.html', context)
