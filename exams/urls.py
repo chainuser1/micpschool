@@ -6,6 +6,6 @@ app_name='exams'
 urlpatterns=[
 
     path('',views.index, name='home'),
-
-    path('<str:slug>/questionaire/',views.questionaire, name='questionaire')
+    path('<str:slug>/questionaire/',views.questionaire, name='questionaire'),
+    path('questionaire/<int:user_id>/answer', views.save_choice, name='answer-question'),
 ]

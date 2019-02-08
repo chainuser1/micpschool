@@ -83,7 +83,8 @@ class Answer(models.Model):
     correct = models.BooleanField(default=False)
 
     class Meta:
-        verbose_name = "Answers"
+        verbose_name = "answer"
+        verbose_name_plural = 'answers'
         unique_together = [
             #one unique answer for each question
             ('question', 'answer_text')
@@ -96,11 +97,13 @@ class Answer(models.Model):
         return self.correct
 
 class QuestionResponse(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="responses")
     # quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="responses", null=True)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    answer = models.ForeignKey(Answer,  on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="response")
+    answer = models.ForeignKey(Answer,  on_delete=models.CASCADE, related_name="response")
     # attempt_number = models.PositiveSmallIntegerField(blank=True, null=True)
+
+
     
 
 

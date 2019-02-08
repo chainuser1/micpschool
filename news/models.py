@@ -7,6 +7,11 @@ class News(models.Model):
     news_title=models.CharField(max_length=30)
     news_body=models.CharField(max_length=3000)
     pub_date=models.DateTimeField('date published')
+
+    class Meta:
+        verbose_name='news'
+        verbose_name_plural='news'
+
     def __str__(self):
         return self.news_title.cap_words()
 
@@ -25,3 +30,7 @@ class Comments(models.Model):
     comment_text=models.CharField(max_length=200)
     def __str__(self):
         return self.comment_text
+
+    class Meta:
+        verbose_name='comment'
+        verbose_name_plural='comments'

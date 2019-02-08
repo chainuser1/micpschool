@@ -1,7 +1,5 @@
 
     {%  load humanizelib %}
-    {%  load bootstrap4 %}
-    {% bootstrap_javascript jquery='full' %}
     <h4 class="text-center">{{news.news_title}}</h4>
     <preformatted class="text-info">Published: {{ news.pub_date|naturaldate }}</preformatted>
 
@@ -9,31 +7,28 @@
     <br>
     <h5>Comments: </h5><br>
     <div class="col-sm-6" id="comments">
-    {% for comment in news.comments_set.all %}
+    {% for comment in news.comments.all %}
           <p>{{ comment.comment_text }}</p>
     {% endfor %}
     </div>
     <form action="{% url 'add' news.id %}" method="post" class="form">
       {% csrf_token %}
         <textarea name="comment_text" class="col-sm-5" multiline placeholder="Enter your comments here"></textarea>
-      {% buttons %}
         <input type="submit" id="btn_submit" class="btn btn-large btn-primary" name="submit" value="Add a comment" />
         <input type="reset" class="btn btn-large btn-primary" name="reset" value="Reset" />
-      {% endbuttons %}
-
     </form>
     <script>
         jQuery(function($){
                //add comment to the
           $("#btn_submit").click(function(e){
-              e.preventDefault()
+              // e.preventDefault()
               if(confirm("Are you sure to add this comment")){
                   $.ajax({
                       url:$(".form").attr("action"),
                       type:"POST",
-                      data: {"news_id":2, "comment_text":"Hello"},
+                      data: {"comment_text":$("textarea[name='comment_text']").val()},
                       success: function(data){
-                          $("div#comments").append('<p>'+data+'</p>')
+                          $("div#comments").append('<p>'+data.comment+'</p>')
                       }
                   })
               }
