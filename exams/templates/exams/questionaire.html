@@ -2,8 +2,7 @@
 {% block content %}
     <h5>Questionaire:  <span class="font-italic ">{{ type }}</span></h5>
     {% if questions %}
-        <form class="form" method="get">
-            {{formset.management_form}}
+        <form class="form" method="post">
             {% csrf_token  %}
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                 <strong>Good Luck!</strong> Please answer the questions carefully. Choosse the correct answer.
@@ -14,16 +13,18 @@
             {% for question in questions %}
                 <p class = "text-primary">{{ question.question_text }}</p>
                 <div class="form-group">
-                    {% for answer in question.answers.all %}    
+                    {% for answer in question.answers.all %}  
+                        <label for="{{answer.id}}"><input type="radio" id="{{answer.id}}" name="{{question.id}}" value="{{answer.id}}" data-answer="{{answer.id}}"></label>
+                        {{answer.answer_text}}
+                        <br>
+                        
                     {% endfor %}
-                    {% for form in formset %}
-                       {{form}}
-                    {% endfor %}
+                    <span class="text-success"></span>
                 </div>
+                
                 <hr/>
             {% endfor %}
             <div class="btn-group">
-                <input type="submit" class="btn btn-primary " name="submit" value="Submit Answers" />
                 <input type="submit" class="btn btn-secondary " name="reset" value="Reset" />
             </div>
         
@@ -42,7 +43,9 @@
             var radioObj=$("input[type='radio']");
             radioObj.change(function(){
                 answer_data=$(this).val();
-                $(this).parents().siblings('.answer').val(answer_data);
+                $(this).parents().siblings('.text-success')
+                .text("Your answer was saved!").fadeOut(2000)
+                .show(300);
                 console.log()
             })
         })
