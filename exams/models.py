@@ -5,19 +5,6 @@ from django.utils import timezone
 import itertools
 # Create your models here.
 
-class Quiz(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    quiz_num_for_student = models.IntegerField(default=0)
-    #question_ids = models.TextField(default=None)
-    num_questions = models.IntegerField(null=True)
-    complete = models.BooleanField(default=False)
-    final_score = models.DecimalField(blank=True, null=True, decimal_places=2, max_digits=5)
-
-    class Meta:
-        verbose_name_plural = 'Quizzes'
-
-    def __str__(self):
-        return "Quiz {}".format(self.quiz_num_for_student)
 
 class ICategory(models.Model):
     """Categories that questions can be in"""
@@ -51,6 +38,20 @@ class ICategory(models.Model):
 
         return super(ICategory, self).save(*args, **kwargs)
 
+class Quiz(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name='quizzes')
+    category = models.ForeignKey(ICategory, on_delete=models.CASCADE, default=None)
+    # quiz_num_for_student = models.IntegerField(default=0)
+    #question_ids = models.TextField(default=None)
+    num_questions = models.IntegerField(null=True)
+    # complete = models.BooleanField(default=False)
+    final_score = models.DecimalField(blank=True, null=True, decimal_places=2, max_digits=5)
+
+    class Meta:
+        verbose_name_plural = 'Quizzes'
+
+    def __str__(self):
+        return "Quiz {}".format(self.quiz_num_for_student)
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)

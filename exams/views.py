@@ -13,22 +13,6 @@ def index(request):
     return render(request, 'exams/index.html')
 
 
-# class QuestionaireView(LoginRequiredMixin,generic.DetailView):
-#     model = Question
-#     login_url = 'login:login_do'
-#     redirect_field_name = "next"
-#     template_name='exams/questionaire.html'
-#     context_object_name='questions'
-#     slug_field="ICategories"
-#     def get_queryset(self):
-#         return get_object_or_404(Question,quiz_id=self.kwargs.get("ICategories"))
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         """Return a list of quizzes title"""
-#         context['quizzes'] = quizzes=Quiz.objects.all()
-#         return context
-
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def questionaire(request, slug):
     questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:10]
@@ -68,3 +52,20 @@ def reset_quiz(request, name):
 		QuestionResponse.objects.filter(user=user,question=question).delete()
 	#return back
 	return redirect(request.GET['next'])
+
+@login_required(redirect_field_name='next', login_url='login:login_do')
+def save_quiz(request, name):
+	student=get_object_or_404(User, id=request.user.id)
+	category=get_object_or_404(ICategory, name=name)
+
+	num_of_questions=category.questions.objects.count() #count objects
+	final_score=0
+	for question in category.questions.all():
+		for answer in question.answers.all():
+			answer=answer.responses.filter(question=question)
+			correct_answer=answer.objects.filter(correct=1)
+			if correct_answer.id==answer.id:
+				final_score+=1
+	user.quizzes_set.create(category=category, final_score=final_score)
+	return JsonResponse({'message':'Score is %d' %(final_score)})
+			

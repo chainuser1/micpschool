@@ -1,81 +1,106 @@
 {% extends 'exams/index.html' %}
-
 {% block content %}
-{% load exams_tag %}
-    <h5>Questionaire:  <span class="font-italic ">{{ type }}</span></h5>
-    <span class="load-message text-info"></span>
+    {% load exams_tag %}
     {% if questions %}
-        <form class="form" method="post">
-            {% csrf_token  %}
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <strong>Good Luck!</strong> Please answer the questions carefully. Choose the correct answer. Review answers before sending
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            {% for question in questions %}
-                <p class = "text-primary">{{ question.question_text }}</p>
-                <div class="form-group">
-                    {% for answer in question.answers.all %}  
-                        <label for="{{answer.id}}">
-                            <input type="radio" id="{{answer.id}}" name="{{question.id}}" 
-                           data-answer="{{answer.id}}" 
-                           {% if request.user|is_answer:answer.id %}
-                            checked
-                            {% endif %}
-                           data-href="{% url 'exams:answer-question' user.id %}"></label>
-                        {{answer.answer_text}}
-                        <br>
-                    {% endfor %}
-                    <span class="text-success"></span>
+        <div class="container">
+            <div class="row">
+                
+                
+                <form class="form" method="post">
+                    <h5>Questionaire:  <span class="font-italic text-info ">{{type }}</span></h5>
+                    &nbsp;<span class="load-message text-info"></span>
+                    {% csrf_token  %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        <strong>Good Luck!</strong> Please answer the questions carefully. Choose the correct answer. Review answers before sending
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        {% for question in questions %}
+                            <div class="post-preview">
+                                <p class = "text-primary">{{ question.question_text }}</p>
+                                <div class="form-group">
+                                    {% for answer in question.answers.all %}
+                                        <label for="{{answer.id}}">
+                                            <input type="radio" id="{{answer.id}}" name="{{question.id}}"
+                                            data-answer="{{answer.id}}"
+                                            {% if request.user|is_answer:answer.id %}
+                                                checked
+                                            {% endif %}
+                                        data-href="{% url 'exams:answer-question' user.id %}"></label>
+                                        {{answer.answer_text}}
+                                        <br>
+                                    {% endfor %}
+                                    <span class="text-success"></span>
+                                </div>
+                            </div>
+                            
+                            <hr/>
+                        {% endfor %}
+                        <div class="btn-group">
+                            <a class="btn btn secondary" next-path="{{request.get_full_path}}" href="{% url 'exams:reset_quiz' type %}?next={{request.get_full_path}}">Reset Quiz</a>
+                            <button data-rest="mz-form"class="btn btn-primary" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
+                        </div>
+                    </div>
+                    
+                    
+                </form>
+                
+            {% else %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>No Questions!</strong> Please check with your teacher for this inconvenience.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                
-                <hr/>
-            {% endfor %}
-            <div class="btn-group">
-                <a class="btn btn secondary" next-path="{{request.get_full_path}}" href="{% url 'exams:reset_quiz' type %}?next={{request.get_full_path}}">Reset Quiz</a>
-                <button class="btn btn-primary" data-quiz-category="{{type}}" data-href="">Save Quiz</button>
-            </div>
-        
-    </form>
-    
-{% else %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>No Questions!</strong> Please check with your teacher for this inconvenience.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
+            {% endif %}
+        </div>
     </div>
-{% endif %}
-<script type="text/javascript">
-        var message='';
-        $(document).ajaxStart(function(){
-            $(".load-message").text('Sending...').fadeIn(2000);
+    <script type="text/javascript">
+    var message='';
+    $(document).ajaxStart(function(){
+        $(".load-message").text('Sending...').fadeIn(2000);
+    })
+    $(document).ajaxComplete(function(){
+        $(".load-message").text(message).fadeOut(1000);
+    })
+    $(function(){
+        var radioObj=$("input[type='radio']");
+        //automatically save answer once choice is made
+        radioObj.change(function(){
+            question_id=$(this).attr('name')
+            answer_id=$(this).attr('data-answer')
+            $.ajax({
+                url: $(this).attr('data-href'),
+                data: {
+                    answer_id:answer_id,
+                    question_id:question_id,
+                },
+                success: function(data){
+                    message=data.message
+                },
+                error: function(data){
+                    message=data.message
+                },
+            })
+        console.log(message)
         })
-        $(document).ajaxComplete(function(){
-            $(".load-message").text(message).fadeOut(1000);
-        })
-        $(function(){
-            var radioObj=$("input[type='radio']");
-            radioObj.change(function(){
-                question_id=$(this).attr('name')
-                answer_id=$(this).attr('data-answer')
-                $.ajax({
-                    url: $(this).attr('data-href'),
-                    data: {
-                        answer_id:answer_id,
-                        question_id:question_id,
-                    },
-                    success: function(data){
-                            message=data.message
-                        },
-                    error: function(data){
-                            message=data.message  
-                        },
-                })
-                
-                console.log(message)
+
+        //save quiz instance
+        var btnSaveQuizObj=$("button[data-rest='mz-form']")
+        btnSaveQuizObj.click(function(e){
+            e.preventDefault()
+            $.ajax({
+                url: $(this).attr('data-href'),
+                success:function(data){
+                    message=data.message
+                },
+                error: function(data){
+                    message=data.message
+                },
             })
         })
-</script>
+    })
+    </script>
 {% endblock %}
