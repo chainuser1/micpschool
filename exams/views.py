@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .models import ICategory, Question, Answer, QuestionResponse
+from .models import ICategory, Question, Answer, QuestionResponse, Quiz
 from django.http import JsonResponse
 # from django.views import generic
 # Create your views here.
@@ -12,22 +12,6 @@ from django.http import JsonResponse
 def index(request):
     return render(request, 'exams/index.html')
 
-
-# class QuestionaireView(LoginRequiredMixin,generic.DetailView):
-#     model = Question
-#     login_url = 'login:login_do'
-#     redirect_field_name = "next"
-#     template_name='exams/questionaire.html'
-#     context_object_name='questions'
-#     slug_field="ICategories"
-#     def get_queryset(self):
-#         return get_object_or_404(Question,quiz_id=self.kwargs.get("ICategories"))
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         """Return a list of quizzes title"""
-#         context['quizzes'] = quizzes=Quiz.objects.all()
-#         return context
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def questionaire(request, slug):
@@ -60,11 +44,39 @@ def save_choice(request, user_id):
 
 
 @login_required(redirect_field_name='next', login_url='login:login_do')
-def reset_quiz(request, slug, next):
+def reset_quiz(request, name):
 	user=get_object_or_404(User,pk=request.user.id)
-	questions=get_object_or_404(ICategory, slug=slug)
+	questions=get_object_or_404(ICategory, name=name).questions.order_by('id')
 	for question in questions:
 		# delete any instance of user choice
 		QuestionResponse.objects.filter(user=user,question=question).delete()
 	#return back
-	return redirect(next)
+	return redirect(request.GET['next'])
+
+@login_required(redirect_field_name='next', login_url='login:login_do')
+def save_quiz(request, name):
+	student=get_object_or_404(User, id=request.user.id)
+	category=get_object_or_404(ICategory, name=name)
+	num_of_questions=category.questions.count() #count objects
+	final_score=0
+	context=None
+	compl_x=0
+	for question in category.questions.all():
+		for answer in question.answers.all():
+			for response in student.responses.filter(question=question, answer=answer):
+				compl_x+=1
+				if answer.correct:
+					final_score+=1
+	if compl_x<num_of_questions:
+		return JsonResponse({'message':'Please answer all questions!'},status=204)
+	else:
+		try:
+			quiz=Quiz.objects.get(student=student,category=category)
+			quiz.num_questions=num_of_questions
+			quiz.final_score=final_score
+			quiz.save(update_fields=['num_questions','final_score'])
+		except Quiz.DoesNotExist:
+			quiz=Quiz.objects.create(student=student, category=category, num_questions=num_of_questions, final_score=final_score)
+			quiz.save()
+		return JsonResponse({'message':'Score is %d' %(final_score)},status=200)
+			
