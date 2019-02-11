@@ -9,6 +9,7 @@ register =  template.Library()
 @register.filter(name='is_answer')
 def is_answer(user, answer_id):
 	answer=get_object_or_404(Answer,id=answer_id)
+	# returns true if the answer id matches the constraint in the user response
 	return user.responses.filter(answer=answer).exists()
 
 @register.filter(name='has_group')
