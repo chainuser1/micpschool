@@ -71,12 +71,12 @@ def save_quiz(request, name):
 		return JsonResponse({'message':'Please answer all questions!'},status=204)
 	else:
 		try:
-			quiz=Quiz.objects.get(student=student,category=category)
+			quiz=student.quizzes.get(category=category)
 			quiz.num_questions=num_of_questions
 			quiz.final_score=final_score
 			quiz.save(update_fields=['num_questions','final_score'])
 		except Quiz.DoesNotExist:
-			quiz=Quiz.objects.create(student=student, category=category, num_questions=num_of_questions, final_score=final_score)
+			quiz=student.quizzes.create(category=category, num_questions=num_of_questions, final_score=final_score)
 			quiz.save()
 		return JsonResponse({'message':'Score is %d' %(final_score)},status=200)
 			

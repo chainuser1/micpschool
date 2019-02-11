@@ -16,7 +16,7 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="col-lg-10 mx-auto">
                         {% for question in questions %}
                             <div class="post-preview">
                                 <p class = "text-primary">{{ question.question_text }}</p>
@@ -63,7 +63,7 @@
         $(".load-message").text('Sending...').fadeIn(2000);
     })
     $(document).ajaxComplete(function(){
-        $(".load-message").text(message).fadeToggle(3000);
+        $(".load-message").text(message).fadeIn(3000);
     })
     $(function(){
         var radioObj=$("input[type='radio']");
