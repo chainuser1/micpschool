@@ -50,8 +50,8 @@ class Quiz(models.Model):
     class Meta:
         verbose_name_plural = 'Quizzes'
 
-    def __str__(self):
-        return "Quiz {}".format(self.quiz_num_for_student)
+    # def __str__(self):
+    #     return "Quiz {}".format(self.quiz_num_for_student)
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)

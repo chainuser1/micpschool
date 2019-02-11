@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .models import ICategory, Question, Answer, QuestionResponse
+from .models import ICategory, Question, Answer, QuestionResponse, Quiz
 from django.http import JsonResponse
 # from django.views import generic
 # Create your views here.
@@ -57,15 +57,26 @@ def reset_quiz(request, name):
 def save_quiz(request, name):
 	student=get_object_or_404(User, id=request.user.id)
 	category=get_object_or_404(ICategory, name=name)
-
-	num_of_questions=category.questions.objects.count() #count objects
+	num_of_questions=category.questions.count() #count objects
 	final_score=0
+	context=None
+	compl_x=0
 	for question in category.questions.all():
 		for answer in question.answers.all():
-			answer=answer.responses.filter(question=question)
-			correct_answer=answer.objects.filter(correct=1)
-			if correct_answer.id==answer.id:
-				final_score+=1
-	user.quizzes_set.create(category=category, final_score=final_score)
-	return JsonResponse({'message':'Score is %d' %(final_score)})
+			for response in student.responses.filter(question=question, answer=answer):
+				compl_x+=1
+				if answer.correct:
+					final_score+=1
+	if compl_x<num_of_questions:
+		return JsonResponse({'message':'Please answer all questions!'},status=204)
+	else:
+		try:
+			quiz=Quiz.objects.get(student=student,category=category)
+			quiz.num_questions=num_of_questions
+			quiz.final_score=final_score
+			quiz.save(update_fields=['num_questions','final_score'])
+		except Quiz.DoesNotExist:
+			quiz=Quiz.objects.create(student=student, category=category, num_questions=num_of_questions, final_score=final_score)
+			quiz.save()
+		return JsonResponse({'message':'Score is %d' %(final_score)},status=200)
 			

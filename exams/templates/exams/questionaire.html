@@ -63,7 +63,7 @@
         $(".load-message").text('Sending...').fadeIn(2000);
     })
     $(document).ajaxComplete(function(){
-        $(".load-message").text(message).fadeOut(1000);
+        $(".load-message").text(message).fadeToggle(3000);
     })
     $(function(){
         var radioObj=$("input[type='radio']");
@@ -93,12 +93,15 @@
             e.preventDefault()
             $.ajax({
                 url: $(this).attr('data-href'),
-                success:function(data){
-                    message=data.message
-                },
-                error: function(data){
-                    message=data.message
-                },
+                statusCode: {
+                    200: function(data){
+                        message=data.message
+                        location.reload()
+                    },
+                    204: function(data){
+                        message='Please answer all questions.'
+                    },
+                }
             })
         })
     })

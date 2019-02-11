@@ -9,5 +9,5 @@ urlpatterns=[
     path('<str:slug>/questionaire/',views.questionaire, name='questionaire'),
     path('questionaire/<int:user_id>/answer', views.save_choice, name='answer-question'),
     path('quiz/<str:name>/reset', views.reset_quiz, name='reset_quiz'),
-    path('quiz/<str:name>/save', views.reset_quiz, name='save_quiz'),
+    path('quiz/<str:name>/save', views.save_quiz, name='save_quiz'),
 ]
