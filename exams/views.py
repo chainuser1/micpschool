@@ -60,11 +60,11 @@ def save_choice(request, user_id):
 
 
 @login_required(redirect_field_name='next', login_url='login:login_do')
-def reset_quiz(request, slug, next):
+def reset_quiz(request, name):
 	user=get_object_or_404(User,pk=request.user.id)
-	questions=get_object_or_404(ICategory, slug=slug)
+	questions=get_object_or_404(ICategory, name=name).questions.order_by('id')
 	for question in questions:
 		# delete any instance of user choice
 		QuestionResponse.objects.filter(user=user,question=question).delete()
 	#return back
-	return redirect(next)
+	return redirect(request.GET['next'])

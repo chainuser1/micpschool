@@ -26,9 +26,9 @@
                 
                 <hr/>
             {% endfor %}
-            <div class="form-group">
-                <button class="btn btn secondary" next-path="{{request.get_full_path}}" data-href="">Reset Quiz</button>
-                <button class="btn btn-primary" data-quiz-category="{{category.slug}}" data-href="">Save Quiz</button>
+            <div class="btn-group">
+                <a class="btn btn secondary" next-path="{{request.get_full_path}}" href="{% url 'exams:reset_quiz' type %}?next={{request.get_full_path}}">Reset Quiz</a>
+                <button class="btn btn-primary" data-quiz-category="{{type}}" data-href="">Save Quiz</button>
             </div>
         
     </form>

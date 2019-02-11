@@ -13,5 +13,5 @@ def has_group(user, group_name):
 # used to get the categories without hassle
 @register.simple_tag
 def get_category():
-	categories=ICategory.objects.all()
-	return categories
+	return ICategory.objects.all()
+	
