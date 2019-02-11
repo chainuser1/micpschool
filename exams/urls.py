@@ -8,4 +8,5 @@ urlpatterns=[
     path('',views.index, name='home'),
     path('<str:slug>/questionaire/',views.questionaire, name='questionaire'),
     path('questionaire/<int:user_id>/answer', views.save_choice, name='answer-question'),
+    path('quiz/<str:slug>/reset', views.reset_quiz, name='reset_quiz'),
 ]

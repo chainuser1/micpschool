@@ -8,12 +8,9 @@ from django.http import JsonResponse
 # from django.views import generic
 # Create your views here.
 
-def get_categories():
-    return ICategory.objects.all()
 
 def index(request):
-    categories = get_categories()
-    return render(request, 'exams/index.html',{'categories':categories})
+    return render(request, 'exams/index.html')
 
 
 # class QuestionaireView(LoginRequiredMixin,generic.DetailView):
@@ -34,20 +31,21 @@ def index(request):
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def questionaire(request, slug):
-    categories = get_categories()
     questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:10]
     type=get_object_or_404(ICategory, slug=slug).name
-    context= {'categories':categories, 'questions':questions, 'type':type}
+    context= {'questions':questions, 'type':type}
     return render(request, 'exams/questionaire.html', context)
 
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def save_choice(request, user_id):
 	response=None
-	if(request.method=='GET'):
+	if(request.method=='GET'):#check if request method corresponds.
+		"""Find the respective objects designated in foreign keys"""
 		user=get_object_or_404(User,pk=user_id)
 		question=get_object_or_404(Question,pk=request.GET['question_id'])
 		answer=get_object_or_404(Answer,pk=request.GET['answer_id'])
+		#update student response if exists and create new if not
 		try:
 			q_response_obj=QuestionResponse.objects.get(user=user, question=question)
 			q_response_obj.answer=answer
@@ -58,4 +56,15 @@ def save_choice(request, user_id):
 		response = JsonResponse({'message':'Your answer was saved!'})
 	else:
 		response = JsonResponse({'message':'An internal error occurred!'+request.method})
-	return response
+	return response #return a json response object
+
+
+@login_required(redirect_field_name='next', login_url='login:login_do')
+def reset_quiz(request, slug, next):
+	user=get_object_or_404(User,pk=request.user.id)
+	questions=get_object_or_404(ICategory, slug=slug)
+	for question in questions:
+		# delete any instance of user choice
+		QuestionResponse.objects.filter(user=user,question=question).delete()
+	#return back
+	return redirect(next)

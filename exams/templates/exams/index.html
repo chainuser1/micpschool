@@ -36,16 +36,18 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
                     {% if request.user|has_group:'Administrator'%}
                       <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" style="color: hsla(182, 57%, 42%, 1);">Administrator Dashboard</a></li>
-                    {% endif %}
+                    {% endif %} 
                     <li class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Quizzes
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          {%get_category as categories %}
                           {% for category in categories %}
                             <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
                             <div class="dropdown-divider"></div>
                           {% endfor %}
+                         
                         </div>
                       </li>
                   </ul>
