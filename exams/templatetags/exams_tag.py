@@ -1,8 +1,15 @@
 from django import template
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import Group
-from exams.models import ICategory
+from exams.models import ICategory, Answer
 # use to register functions as template tags
 register =  template.Library()
+
+
+@register.filter(name='is_answer')
+def is_answer(user, answer_id):
+	answer=get_object_or_404(Answer,id=answer_id)
+	return user.responses.filter(answer=answer).exists()
 
 @register.filter(name='has_group')
 def has_group(user, group_name):

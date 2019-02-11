@@ -1,5 +1,7 @@
 {% extends 'exams/index.html' %}
+
 {% block content %}
+{% load exams_tag %}
     <h5>Questionaire:  <span class="font-italic ">{{ type }}</span></h5>
     <span class="load-message text-info"></span>
     {% if questions %}
@@ -17,7 +19,11 @@
                     {% for answer in question.answers.all %}  
                         <label for="{{answer.id}}">
                             <input type="radio" id="{{answer.id}}" name="{{question.id}}" 
-                           data-answer="{{answer.id}}" data-href="{% url 'exams:answer-question' user.id %}"></label>
+                           data-answer="{{answer.id}}" 
+                           {% if request.user|is_answer:answer.id %}
+                            checked
+                            {% endif %}
+                           data-href="{% url 'exams:answer-question' user.id %}"></label>
                         {{answer.answer_text}}
                         <br>
                     {% endfor %}
