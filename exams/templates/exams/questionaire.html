@@ -6,7 +6,7 @@
         <form class="form" method="post">
             {% csrf_token  %}
             <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <strong>Good Luck!</strong> Please answer the questions carefully. Choosse the correct answer.
+                <strong>Good Luck!</strong> Please answer the questions carefully. Choose the correct answer. Review answers before sending
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -26,8 +26,9 @@
                 
                 <hr/>
             {% endfor %}
-            <div class="btn-group">
-                <input type="submit" class="btn btn-secondary " name="reset" value="Reset" />
+            <div class="form-group">
+                <button class="btn btn secondary" next-path="{{request.get_full_path}}" data-href="">Reset Quiz</button>
+                <button class="btn btn-primary" data-quiz-category="{{category.slug}}" data-href="">Save Quiz</button>
             </div>
         
     </form>

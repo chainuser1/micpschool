@@ -2,15 +2,16 @@
 <html>
   <head>
     {% block assets %}
-      {% block title %}<title>MICP Online Assesment</title>{% endblock %}
+      {% block title %}<title>MICP Online Academy</title>{% endblock %}
       {% load static %}
+      {% load exams_tag %}
       <link rel="icon" type="image/png" href="{% static "images/micp-site.ico" %}"/>
       <link rel="stylesheet" type="text/css" href={% static "css/bootstrap-grid.min.css" %} />
       <link rel="stylesheet" type="text/css" href={% static "css/bootstrap-reboot.min.css" %} />
       <link rel="stylesheet" type="text/css" href={% static "css/bootstrap.min.css" %} />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="This is an online assesment designed to have students take their exams online.">
-    {%endblock%}
+      {%endblock%}
     </head>
     <body>
       {% block scripts %}
@@ -19,13 +20,13 @@
         <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/ajax-setup.js" %}">
         </script>
-      {%endblock%}
+        {%endblock%}
         
         <div class="container">
           <div class="row">
             {% block navbar %}
               <nav class="navbar navbar-expand-lg navbar-light  fixed-top">
-                <a class="navbar-brand" href="#">MICP Online Exams</a>
+                <a class="navbar-brand" href="#">MICP Online Academy</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,17 +34,22 @@
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'master' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Quizzes
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        {% for category in categories %}
-                          <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
-                          <div class="dropdown-divider"></div>
-                        {% endfor %}
-                      </div>
-                    </div>
+                    {% if request.user|has_group:'Administrator'%}
+                      <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" style="color: hsla(182, 57%, 42%, 1);">Administrator Dashboard</a></li>
+                    {% endif %} 
+                    <li class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Quizzes
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          {%get_category as categories %}
+                          {% for category in categories %}
+                            <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
+                            <div class="dropdown-divider"></div>
+                          {% endfor %}
+                         
+                        </div>
+                      </li>
                   </ul>
                   {% if user.is_authenticated ==  False %}
                     <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'login:lico_auth' %}" method="post">
