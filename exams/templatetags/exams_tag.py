@@ -22,4 +22,24 @@ def has_group(user, group_name):
 @register.simple_tag
 def get_category():
 	return ICategory.objects.all()
-	
+
+#filter to determine if student already took the quiz
+@register.filter(name='has_quiz')
+def has_quiz(user, name):
+	category = get_object_or_404(ICategory, name=name)
+	return user.quizzes.filter(category=category).exists()
+
+#returns a formatted output of final score/ num of questions
+@register.filter(name='get_score')
+def get_score(user, name):
+	category = get_object_or_404(ICategory, name=name)
+	quiz = user.quizzes.get(category=category)
+	return "%d/%d" %(quiz.final_score, quiz.num_questions)
+
+@register.filter(name='reveal_answer')
+def reveal_answer(id):
+	answer=Answer.objects.get(pk=id)
+	if answer.correct:
+		return 'text-success'
+	else:
+		return ''

@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import ICategory, Question, Answer, QuestionResponse
 from django.contrib.auth.models import User
 import csv
+from django import forms
 import datetime
 from django.http import HttpResponse
 
@@ -41,15 +42,23 @@ export_to_csv.short_description = 'Export to CSV'
 class AnswerInline(admin.TabularInline):
     model = Answer
 
+class QuestionForm(forms.ModelForm):
+    question_text = forms.CharField(widget=forms.Textarea())
+    class Meta:
+        model=Question
+        fields = ['question_text']
+        
+
 class QuestionAdmin(admin.ModelAdmin):
-    readonly_fields = ['slug']
+    # question_text = forms.CharField(widget=forms.Textarea())
+    # form=QuestionForm
     inlines = [AnswerInline]
+    readonly_fields = ['slug']
     list_display = ['__str__', 'icategory', 'published', 'save_for_exam']
     list_editable = ['published', 'save_for_exam']
     search_fields = ['question_text']
     list_filter = ['icategory', 'published', 'save_for_exam']
-    actions = [export_to_csv]
-
+    actions = [export_to_csv]    
 
 class ICategoryAdmin(admin.ModelAdmin):
     readonly_fields = ['slug']

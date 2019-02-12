@@ -51,26 +51,27 @@ def reset_quiz(request, name):
 		# delete any instance of user choice
 		QuestionResponse.objects.filter(user=user,question=question).delete()
 	#return back
+	
 	return redirect(request.GET['next'])
 
 @login_required(redirect_field_name='next', login_url='login:login_do')
 def save_quiz(request, name):
 	student=get_object_or_404(User, id=request.user.id)
 	category=get_object_or_404(ICategory, name=name)
-	num_of_questions=category.questions.count() #count objects
+	num_of_questions=category.questions.count() #return number of questions from this category
 	final_score=0
 	context=None
 	compl_x=0
 	for question in category.questions.all():
 		for answer in question.answers.all():
 			for response in student.responses.filter(question=question, answer=answer):
-				compl_x+=1
-				if answer.correct:
+				compl_x+=1#count user response from each question
+				if answer.correct:#if answer is correct then score increments
 					final_score+=1
-	if compl_x<num_of_questions:
+	if compl_x<num_of_questions:#returns a 204 status for incomplete answer sheet
 		return JsonResponse({'message':'Please answer all questions!'},status=204)
 	else:
-		try:
+		try:#update or save new quiz instance
 			quiz=student.quizzes.get(category=category)
 			quiz.num_questions=num_of_questions
 			quiz.final_score=final_score

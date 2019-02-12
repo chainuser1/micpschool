@@ -7,40 +7,80 @@
                 
                 
                 <form class="form" method="post">
-                    <h5>Questionaire:  <span class="font-italic text-info ">{{type }}</span></h5>
-                    &nbsp;<span class="load-message text-info"></span>
+                    <h5>Questionaire:  <span class="font-italic text-info ">{{type}}</span></h5>
+                    &nbsp;
+                    <span class="load-message text-info" style="position: fixed; top:20px; z-index: 1500;"></span>
+                    
                     {% csrf_token  %}
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        <strong>Good Luck!</strong> Please answer the questions carefully. Choose the correct answer. Review answers before sending
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="col-lg-10 mx-auto">
+                    {% if request.user|has_quiz:type == False %}
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Good Luck!</strong> Please answer the questions carefully. Choose the correct answer. Review answers before sending
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {%endif%}
+                        <div class="col-lg-10 mx-auto" id="print_modal">
+                            
+                            <section class="form-group">
+                                <h6 class="text-secondary"> Name: <b>{{request.user.last_name}}, {{request.user.first_name}}</b></h6>
+                                <h6 class="text-secondary"> Email: <b>{{request.user.email}}</b></h6>
+                                {% if request.user|has_quiz:type %}
+                                    {% with request.user|get_score:type as score %}
+                                    <h6 class="text-secondary"> Total Score: <b>{{score}}</b></h6>
+                                {% endwith %}
+                                
+                            {% endif %}
+                        </section>
                         {% for question in questions %}
                             <div class="post-preview">
+                                
+                                
                                 <p class = "text-primary">{{ question.question_text }}</p>
-                                <div class="form-group">
+                                <div class="form-group ">
                                     {% for answer in question.answers.all %}
-                                        <label for="{{answer.id}}">
+                                        <label class="
+                                            {%if request.user|has_quiz:type%}
+                                            {% with answer.id|reveal_answer as revelation%}
+                                            {{revelation}}
+                                            {%endwith%}
+                                            {%endif%}
+                                            " for="{{answer.id}}">
                                             <input type="radio" id="{{answer.id}}" name="{{question.id}}"
                                             data-answer="{{answer.id}}"
                                             {% if request.user|is_answer:answer.id %}
                                                 checked
                                             {% endif %}
-                                        data-href="{% url 'exams:answer-question' user.id %}"></label>
-                                        {{answer.answer_text}}
+                                            {% if request.user|has_quiz:type %}
+                                                disabled
+                                            {% endif %}
+                                            data-href="{% url 'exams:answer-question' user.id %}">
+                                            {{answer.answer_text}}
+                                        </label>
+                                        
                                         <br>
                                     {% endfor %}
-                                    <span class="text-success"></span>
                                 </div>
                             </div>
                             
                             <hr/>
                         {% endfor %}
+                    </div>
+                    <div class="col-lg-10 mx-auto">
                         <div class="btn-group">
-                            <a class="btn btn secondary" next-path="{{request.get_full_path}}" href="{% url 'exams:reset_quiz' type %}?next={{request.get_full_path}}">Reset Quiz</a>
-                            <button data-rest="mz-form"class="btn btn-primary" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
+                            <a class="btn btn secondary
+                                {% if request.user|has_quiz:type %}
+                                    disabled
+                                {% endif %}
+                                "
+                                
+                            next-path="{{request.get_full_path}}" href="{% url 'exams:reset_quiz' type %}?next={{request.get_full_path}}">Reset Quiz</a>
+                            <button
+                            {% if request.user|has_quiz:type %}
+                                disabled
+                            {% endif %}
+                            data-rest="mz-form"class="btn btn-primary" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
+                            <button class="btn btn-link" id="print_q">Print Questionaire</button>
                         </div>
                     </div>
                     
@@ -53,6 +93,7 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
+
                 </div>
             {% endif %}
         </div>
@@ -60,49 +101,56 @@
     <script type="text/javascript">
     var message='';
     $(document).ajaxStart(function(){
-        $(".load-message").text('Sending...').fadeIn(2000);
+    $(".load-message").text('Sending...').fadeIn(2000);
     })
     $(document).ajaxComplete(function(){
-        $(".load-message").text(message).fadeIn(3000);
+    $(".load-message").text(message).fadeOut(2000);
     })
     $(function(){
-        var radioObj=$("input[type='radio']");
-        //automatically save answer once choice is made
-        radioObj.change(function(){
-            question_id=$(this).attr('name')
-            answer_id=$(this).attr('data-answer')
-            $.ajax({
-                url: $(this).attr('data-href'),
-                data: {
-                    answer_id:answer_id,
-                    question_id:question_id,
-                },
-                success: function(data){
-                    message=data.message
-                },
-                error: function(data){
-                    message=data.message
-                },
-            })
-        console.log(message)
-        })
-
-        //save quiz instance
+    var radioObj=$("input[type='radio']");
+    //automatically save answer once choice is made
+    radioObj.change(function(){
+    question_id=$(this).attr('name')
+    answer_id=$(this).attr('data-answer')
+    $.ajax({
+    url: $(this).attr('data-href'),
+    data: {
+    answer_id:answer_id,
+    question_id:question_id,
+    },
+    success: function(data){
+    message=data.message
+    },
+    error: function(data){
+    message=data.message
+    },
+    })
+    console.log(message)
+    })
+    //save quiz instance
         var btnSaveQuizObj=$("button[data-rest='mz-form']")
         btnSaveQuizObj.click(function(e){
+            if(!confirm("Are you sure you want to submit your answer sheet? You will not be able to alter it once submitted."))
+                return false;
             e.preventDefault()
             $.ajax({
                 url: $(this).attr('data-href'),
                 statusCode: {
                     200: function(data){
                         message=data.message
-                        location.reload()
+                        $("input[type='radio']").attr('disabled', 'disabled')
+                        $("a.btn").addClass('disabled')
                     },
                     204: function(data){
                         message='Please answer all questions.'
                     },
                 }
             })
+        })
+        //print the questionaire
+        $("#print_q").click(function(e){
+            e.preventDefault()
+            printJS({printable:'print_modal', type:'html', header:'{{type}} Questionaire'})
         })
     })
     </script>
