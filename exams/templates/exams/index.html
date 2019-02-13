@@ -37,7 +37,7 @@
             <div div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{% url 'master' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'news_index' %}">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="#news-developing">News</a></li>
                 {% if request.user|has_group:'Administrator'%}
                   <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" style="color: hsla(182, 57%, 42%, 1);">Administrator Dashboard</a></li>
                 {% endif %}
