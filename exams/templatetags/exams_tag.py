@@ -42,4 +42,4 @@ def reveal_answer(id):
 	if answer.correct:
 		return 'text-success'
 	else:
-		return ''
+		return 'text-danger'

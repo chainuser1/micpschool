@@ -32,11 +32,10 @@
                                 
                             {% endif %}
                         </section>
+            
                         {% for question in questions %}
                             <div class="post-preview">
-                                
-                                
-                                <p class = "text-primary">{{ question.question_text }}</p>
+                                <p class = "text-primary alert-warning">{{ question.question_text }}</p>
                                 <div class="form-group ">
                                     {% for answer in question.answers.all %}
                                         <label class="
