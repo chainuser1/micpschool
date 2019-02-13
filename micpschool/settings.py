@@ -23,31 +23,36 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #bootstrap_less = os.path.join(os.path.dirname(twitter_bootstrap.__file__), 'static', 'less')
 #PIPELINE_LESS_ARGUMENTS = u'--include-path={}'.format(os.pathsep.join([bootstrap_less, micpschool_less]))
 # SECURITY WARNING: keep the secret key used in production secret!
-try:
-    if("SECRET_KEY" in os.environ['SECRET_KEY']):
-        SECRET_KEY = os.environ['SECRET_KEY']
-except KeyError:
-        SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
-else:
-    SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
+# try:
+#     if("SECRET_KEY" in os.environ['SECRET_KEY']):
+#         SECRET_KEY = os.environ['SECRET_KEY']
+# except KeyError:
+#         SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
+# else:
+SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com','chainuser1.pythonanywhere.com']
+# CACHES = {
+    # "default": {
+    #     "BACKEND": "django_redis.cache.RedisCache",
+    #     "LOCATION": "redis://127.0.0.1:6379/",
+    #     "OPTIONS": {
+    #         "CLIENT_CLASS": "django_redis.client.DefaultClient",
+    #         "PASSWORD": "",
+    #         "CLIENT_CLASS": "django_redis.client.DefaultClient",
+    #         "SOCKET_CONNECT_TIMEOUT": 5,  # in seconds
+    #         "SOCKET_TIMEOUT": 5,  # in seconds
+    #     },
+    #     "KEY_PREFIX": "example"
+    # }
 CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "",
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "SOCKET_CONNECT_TIMEOUT": 5,  # in seconds
-            "SOCKET_TIMEOUT": 5,  # in seconds
-        },
-        "KEY_PREFIX": "example"
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
     }
 }
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -73,7 +78,6 @@ INSTALLED_APPS = [
      'django_ajax',
      'exams',
      'login',
-     'static',
 ]
 
 MIDDLEWARE = [
@@ -177,12 +181,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
-]
+STATIC_URL ='/static/'
+STATIC_ROOT = "/home/chainuser1/micpschool/static"
+# or, eg,
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 #
 #
