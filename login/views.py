@@ -60,7 +60,7 @@ def register(request):
         if("next" in request.session):
             redirect(request.session["next"])
         else:
-            redirect('home')
+            redirect('exams:home')
     else: 
         form = RegisterForm(request.POST)
     return render(request, 'login/register.html', {'form':form})

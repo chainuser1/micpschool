@@ -78,6 +78,7 @@ INSTALLED_APPS = [
      'django_ajax',
      'exams',
      'login',
+     'static',
 ]
 
 MIDDLEWARE = [
