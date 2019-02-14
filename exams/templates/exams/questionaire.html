@@ -33,9 +33,9 @@
                             {% endif %}
                         </section>
             
-                        {% for question in questions %}
+                        {% for item_no, question in enumerate(questions) %}
                             <div class="post-preview">
-                                <p class = "text-primary alert-warning">{{ question.question_text }}</p>
+                                <p class = "text-primary alert-warning">{{item_no}}.) {{ question.question_text }}</p>
                                 <div class="form-group ">
                                     {% for answer in question.answers.all %}
                                         <label class="
@@ -100,32 +100,32 @@
     <script type="text/javascript">
     var message='';
     $(document).ajaxStart(function(){
-    $(".load-message").text('Sending...').fadeIn(2000);
+        $(".load-message").text('Sending...').fadeIn(2000);
     })
     $(document).ajaxComplete(function(){
-    $(".load-message").text(message).fadeOut(2000);
+        $(".load-message").text(message).fadeOut(2000);
     })
     $(function(){
-    var radioObj=$("input[type='radio']");
-    //automatically save answer once choice is made
-    radioObj.change(function(){
-    question_id=$(this).attr('name')
-    answer_id=$(this).attr('data-answer')
-    $.ajax({
-    url: $(this).attr('data-href'),
-    data: {
-    answer_id:answer_id,
-    question_id:question_id,
-    },
-    success: function(data){
-    message=data.message
-    },
-    error: function(data){
-    message=data.message
-    },
-    })
-    console.log(message)
-    })
+        var radioObj=$("input[type='radio']");
+        //automatically save answer once choice is made
+        radioObj.change(function(){
+        question_id=$(this).attr('name')
+        answer_id=$(this).attr('data-answer')
+        $.ajax({
+            url: $(this).attr('data-href'),
+            data: {
+                answer_id:answer_id,
+                question_id:question_id,
+            },
+            success: function(data){
+                message=data.message
+            },
+            error: function(data){
+                message=data.message
+            },
+        })
+        console.log(message)
+        })
     //save quiz instance
         var btnSaveQuizObj=$("button[data-rest='mz-form']")
         btnSaveQuizObj.click(function(e){
