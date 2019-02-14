@@ -185,9 +185,8 @@ USE_TZ = True
 # STATIC_URL ='/static/'
 # STATIC_ROOT = "/home/chainuser1/micpschool/static"
 # # or, eg,
-
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL ='/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 #
 #
