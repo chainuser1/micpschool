@@ -33,7 +33,7 @@ SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com','chainuser1.pythonanywhere.com']
 # CACHES = {
@@ -182,9 +182,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_URL ='/static/'
+# STATIC_URL ='/static/'
 # STATIC_ROOT = "/home/chainuser1/micpschool/static"
 # # or, eg,
+STATIC_URL ='/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 #
