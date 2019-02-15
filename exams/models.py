@@ -103,8 +103,4 @@ class QuestionResponse(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="response")
     answer = models.ForeignKey(Answer,  on_delete=models.CASCADE, related_name="response")
     # attempt_number = models.PositiveSmallIntegerField(blank=True, null=True)
-
-
     
-
-
