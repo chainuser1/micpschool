@@ -36,6 +36,7 @@ SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com','chainuser1.pythonanywhere.com']
+<<<<<<< HEAD
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -62,13 +63,16 @@ CACHES = {
 #         'LOCATION': '/tmp/memcached.sock',
 #     }
 # }
+=======
+>>>>>>> 4d3d87358a16898c9c830ac72678609a09572484
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'unix:/tmp/memcached.sock',
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'micp_cache_table',
     }
 }
+
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
@@ -94,7 +98,6 @@ INSTALLED_APPS = [
      'exams',
      'login',
      'static',
-     'clear_cache',
 ]
 
 MIDDLEWARE = [
@@ -105,9 +108,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+<<<<<<< HEAD
+
+=======
     # 'django.middleware.cache.UpdateCacheMiddleware',
     # 'django.middleware.common.CommonMiddleware',
     # 'django.middleware.cache.FetchFromCacheMiddleware',
+>>>>>>> 994d537f04da08f418d49a4c273e61da4b5da44f
 ]
 
 ROOT_URLCONF = 'micpschool.urls'
