@@ -36,35 +36,6 @@ SECRET_KEY ='_23=-7y*)(zkp^x8ha&p3k0w*ctqbhp1f@^fiexs!3zq&op%hh'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.micpschool.com','chainuser1.pythonanywhere.com']
-<<<<<<< HEAD
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "",
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "SOCKET_CONNECT_TIMEOUT": 5,  # in seconds
-            "SOCKET_TIMEOUT": 5,  # in seconds
-        },
-        "KEY_PREFIX": "example"
-}
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-#         'LOCATION': '/var/tmp/django_cache',
-#     }
-# }
-
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-#         'LOCATION': '/tmp/memcached.sock',
-#     }
-# }
-=======
->>>>>>> 4d3d87358a16898c9c830ac72678609a09572484
 
 CACHES = {
     'default': {
