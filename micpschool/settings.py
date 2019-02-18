@@ -69,6 +69,7 @@ INSTALLED_APPS = [
      'exams',
      'login',
      'static',
+     'about',
 ]
 
 MIDDLEWARE = [

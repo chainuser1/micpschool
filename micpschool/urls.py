@@ -30,5 +30,6 @@ urlpatterns = [
     path('', views.master, name='master'),
     path('exams/', include('exams.urls')),
     path('news/', include('news.urls')),
-    path('login/', include('login.urls'))
+    path('login/', include('login.urls')),
+    path('about/', include('about.urls')),
 ]
