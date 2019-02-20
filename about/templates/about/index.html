@@ -1,37 +1,45 @@
 {% extends 'base_/base.html' %}
 {% block title %}<title>MICP Online Academy</title>{% endblock %}
 {% block content %}
-	<nav id="navbar-example3" class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <nav class="nav nav-pills flex-column">
-    <a class="nav-link" href="#item-1">Item 1</a>
-    <nav class="nav nav-pills flex-column">
-      <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a>
-      <a class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
-    </nav>
-    <a class="nav-link" href="#item-2">Item2</a>
-    <a class="nav-link" href="#item-3">Item3</a>
-    <nav class="nav nav-pills flex-column">
-      <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
-      <a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
-    </nav>
-  </nav>
-</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-sm-3 col-4" id="aboutUs">
+				<ul class="nav nav-pills flex-column">
+					<li class="nav-item">
+						<a class="nav-link " href="#history">History</a>
+					</li>
+					<div class="separator"></div>
+					<li class="nav-item">
+						<a class="nav-link " href="#mission">Mission</a>
+					</li>
+					<div class="separator"></div>
+					<li class="nav-item">
+						<a class="nav-link " href="#vision">Vision</a>
+					</li>
+					<div class="separator"></div>
+				</ul>
+			</nav>
+			<div class="col-sm-9 col-8">
+				<div id="history">
+					<h4>Introduction</h4>
+					<p c;ass="text-capitalized text-justify">As a known advocate of education, <a class="link" href="http://carlosjerichopetilla.com/biography/">Carlos Jericho “Icot” L. Petilla</a> initiated various educational programs even during his term as Governor of the Province of Leyte. Among these programs is the “ICOTP-ICT” or the “Income Creating Opportunities thru Technology Project”.
 
-<div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-  <h4 id="item-1">Item 1</h4>
-  <p>...</p>
-  <h5 id="item-1-1">Item 1-1</h5>
-  <p>...</p>
-  <h5 id="item-1-2">Item 2-2</h5>
-  <p>...</p>
-  <h4 id="item-2">Item 2</h4>
-  <p>...</p>
-  <h4 id="item-3">Item 3</h4>
-  <p>...</p>
-  <h5 id="item-3-1">Item 3-1</h5>
-  <p>...</p>
-  <h5 id="item-3-2">Item 3-2</h5>
-  <p>...</p>
-</div>
+This is a comprehensive program that equips eligible high school scholars with the proper training and skills in information and communications technology. Upon finishing the program, the scholars become employable or eligible to work as a computer programmer in various companies upon the endorsement of ICOTP-ICT. The scholar becomes employed even without having to secure a college degree or diploma.
+
+The program recognizes talented high school graduates who practically have no means to afford a college education. The program is recognized by various IT companies and is duly accredited by the TESDA.<br>
+This program would be later known as MIC-P (Multiple Income Creating-Program).
+The program started earlier in 2011. It has two level. Phase-1, based in secondary school campuses, introduces programming to graduating students. Phase 2 covers the intermediate to advanced programming dogmas and is housed on two e-learning facilties managed and kept by the Provincial Government.</p>
+				</div>
+				<div id="mission">
+					<h4>Mission</h4>
+					<p>Try to scroll this page and look at the menu while scrolling!</p>
+				</div>
+				<div id="vision">
+					<h4>Vision</h4>
+					<p>Try to scroll this page and look at the menu while scrolling!</p>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 	{%endblock%}

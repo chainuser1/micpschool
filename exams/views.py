@@ -10,7 +10,7 @@ from django.http import JsonResponse
 
 
 def index(request):
-    return render(request, 'exams/index.html')
+    return render(request, 'base_/base.html')
 
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')

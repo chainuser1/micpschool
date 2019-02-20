@@ -15,15 +15,17 @@
       <meta name="description" content="This is an online assesment designed to have students take their exams online.">
     {%endblock%}
 </head>
-<body>
+<body data-spy="scroll" data-target="#aboutUs" data-offset="1">
   {% block scripts %}
         <script type="text/javascript" src="{% static "exams/js/jquery-3.3.1.min.js" %}"></script>
         <script type="text/javascript" src="{% static "exams/js/bootstrap.bundle.min.js" %}"></script>
         <script type="text/javascript" src="{% static "exams/js/bootstrap.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "exams/js/print.min.js" %}">
+        </script>
    {%endblock%}
    {% block navbar %}
-          <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"">
-            <a class="navbar-brand" href="#"><img src="{% static "exams/images/micp-site.ico" %}" style="width: 4em; height: 4em;"/>MIC-P Academy</a>
+          <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-info" id="mainNav" style="position: fixed; height: 4em;">
+            <a class="navbar-brand" href="#"><img src="{% static "exams/images/micp-site.ico" %}" style="width: 1.5em; height: 1.5em; padding-right: 5px;"/>MIC-P Academy</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -34,13 +36,13 @@
                 <li class="nav-item"><a class="nav-link" href="#news-developing">News</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about:view_page' %}">About</a></li>
                 {% if request.user|has_group:'Administrator'%}
-                  <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" style="color: hsla(182, 57%, 42%, 1);">Administrator Dashboard</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" >Administrator Dashboard</a></li>
                 {% endif %}
-                <li class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="dropdown bg-info">
+                  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Quizzes
                   </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <div class="dropdown-menu bg-info" aria-labelledby="dropdownMenuLink">
                     {%get_category as categories %}
                     {% for category in categories %}
                       <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
@@ -65,7 +67,7 @@
             </div>
           </nav>
         {% endblock %}
-        <header class="masthead col-md-12" style="background-image: url({% static 'exams/images/cs-home.jpg' %});">
+        <header class="masthead col-md-12" style="height 40px; background-image: url({% static 'exams/images/cs-home.jpg' %}); ">
           <div class="overlay"></div>
           <div class="container">
             <div class="row">
