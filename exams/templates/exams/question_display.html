@@ -1,0 +1,166 @@
+{%extends 'base_/base.html'%}
+{%block content%}
+{% load exams_tag %}
+{%load static%}
+<section class="container">
+	{% if questions %}
+		<div class="row">
+			<div class="mx-auto col-lg-10">
+				
+			<!-- Type of question -->
+			<h5>Questionaire:  <span class="font-italic text-info ">{{type}}</span></h5>      
+            &nbsp;
+            <!-- ajax display message -->
+            <span class="load-message text-warning bg-light" style=" float:left;">
+                   <!-- direction -->
+			<div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>Good Luck!</strong> Please answer the questions carefully. Choose the correct answer. Review answers before sending
+                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>   -->   
+            </div>
+            <!-- Questions in carousel -->
+			<div id="question_id" class="carousel slide col " data-ride="">
+				<ol class="carousel-indicators">
+					{%for question in questions %}
+					 {%if forloop.first %}
+					 	<li data-target="#question_id" data-slide-to="{{forloop.counter}}" class="active">{{forloop.counter}}</li>
+					 {%endif%}
+					 <li data-target="#question_id" data-slide-to="{{forloop.counter}}" class="item">{{forloop.counter}}</li>
+					{%endfor%}
+				</ol>
+				<div class="carousel-inner">
+					{%for question in questions%}
+						
+					  	<div class="carousel-item {%if forloop.first%}active{%endif%}">
+					  			<img src="{%static '/exams/images/2281.jpg'%}" style="height: 300px;width:100%;"/>
+					  			<h6 style="padding-left:140px;padding-right: 140px; width: 100%;word-wrap: break-word; min-width: 200px;"><b>{{forloop.counter}}</b>.){{question.question_text}}</h6>
+					  			<div class="form-group" style="padding-left:140px;padding-right: 140px;">
+					  			{%for answer in question.answers.all%}
+					  			<label class="
+                                            {%if request.user|has_quiz:type%}
+                                            {% with answer.id|reveal_answer as revelation%}
+                                            {{revelation}}
+                                            {%endwith%}
+                                            {%endif%}
+                                            " for="{{answer.id}}">
+                                            <input type="radio" id="{{answer.id}}" name="{{question.id}}"
+                                            data-answer="{{answer.id}}"
+                                            {% if request.user|is_answer:answer.id %}
+                                                checked
+                                            {% endif %}
+                                            {% if request.user|has_quiz:type %}
+                                                disabled
+                                            {% endif %}
+                                            data-href="{% url 'exams:answer-question' user.id %}">
+                                            <span>{{answer.answer_text}}</span>
+                                        </label>
+
+                                        <br>
+					  			{%endfor%}
+					  			</div>
+					  		
+					  	</div>
+					  	
+					{%endfor%}
+				</div>
+				<a class="carousel-control-prev" href="#question_id" data-slide="prev">
+    				<span class="carousel-control-prev-icon"></span>
+  				</a>
+  				<a class="carousel-control-next" href="#question_id" data-slide="next">
+    				<span class="carousel-control-next-icon"></span>
+  				</a>
+			</div>
+			<!-- buttons -->
+			<div class="col-lg-10 mx-auto">
+				
+                <div class="btn-group">
+                    <a class="btn btn secondary
+                                {% if request.user|has_quiz:type %}
+                                    disabled
+                                {% endif %}
+                                "
+                                
+                            next-path="{{request.get_full_path}}" href="{% url 'exams:reset_quiz' type %}?next={{request.get_full_path}}">Reset Quiz</a>
+                   	<button
+                            {% if request.user|has_quiz:type %}
+                                disabled
+                            {% endif %}
+                    data-rest="mz-form"class="btn btn-primary" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
+                </div>
+            </div>
+			</div>
+		</div>
+		
+		{%else%}
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>No Questions!</strong> Please check with your teacher for this inconvenience.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		{%endif%}
+	</section>
+	<script>
+		var message='';
+    $(document).ajaxStart(function(){
+        $(".load-message").text("Sending data...").fadeIn(2000);
+    })
+    $(document).ajaxComplete(function(){
+        $(".load-message").text(message).fadeOut(2000);
+    })
+    $(function(){
+    	$(".btn-group").hide(1000)
+    	var radioObj=$("input[type='radio']");
+    	//automatically save answer once choice is made
+    	radioObj.change(function(){
+    		question_id=$(this).attr('name')
+    		answer_id=$(this).attr('data-answer')
+    		$.ajax({
+    			url: $(this).attr('data-href'),
+    			data: {
+    				answer_id:answer_id,
+    				question_id:question_id,
+    			},
+    			success: function(data){
+    				message=data.message
+    			},
+    			error: function(data){
+    				message=data.message
+    			},
+    		})
+    		console.log(message)
+    	})
+    	//save quiz instance
+    	var btnSaveQuizObj=$("button[data-rest='mz-form']")
+    	btnSaveQuizObj.click(function(e){
+    		if(!confirm("Are you sure you want to submit your answer sheet? You will not be able to alter it once submitted."))
+    			return false;
+    		e.preventDefault()
+    		$.ajax({
+    			url: $(this).attr('data-href'),
+    			statusCode: {
+    				200: function(data){
+    					message=data.message
+    					$("input[type='radio']").attr('disabled', 'disabled')
+    					$("a.btn").addClass('disabled')
+    				},
+    				204: function(data){
+    					message='Please answer all questions.'
+    			},
+    		}
+    	})
+    	$(".carousel").carousel({
+    		wrap:false,
+    		ride: false,
+    		direction: 'right'
+    	})
+    	
+    	
+    	
+    	$("#question_id").on("slid.bs.carousel", function(){
+    		alert("hello")
+    	})
+    })
+	</script>
+	{%endblock%}
