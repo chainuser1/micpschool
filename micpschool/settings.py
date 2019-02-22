@@ -68,7 +68,6 @@ INSTALLED_APPS = [
      'django_ajax',
      'exams',
      'login',
-     'static',
      'about',
      'mdbootstrap',
 ]
