@@ -5,6 +5,7 @@
       {% block title %}<title>MICP Online Academy</title>{% endblock %}
       {% load static %}
       {% load exams_tag %}
+      <link rel="stylesheet" type="text/css" href="{% static "exams/css/style.css" %}" />
       <link rel="stylesheet" type="text/css" href="{% static "exams/css/cleanboots.min.css" %}" />
       <link rel="shortcut icon" type="image/png" href="{% static "exams/images/51132402_356884145148674_3838735060702330880_n_Fuq_1.ico" %}"/>
       <link rel="stylesheet" type="text/css" href="{% static "exams/css/bootstrap-grid.min.css" %}" />
@@ -83,10 +84,24 @@
           </div>
         </header>
         {%block content%}{%endblock%}
+        <!-- Footer -->
+        <br>
+        <br>
+        <hr/>
+        <footer class="page-footer font-medium blue" style="background-color: #00695c;width: height:4%;">
+
+        <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2018 Copyright:
+              <a href="#">Developed By: Jayson Ramos</a>
+          </div>
+        <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
         <script>
           $(function(){
             var $header = $('.header'),
-            scrollClass = 'bg-info',
+            scrollClass = 'bg-darth-galaxy',
             activateAtY = 20;
 
             function deactivateHeader() {

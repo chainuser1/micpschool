@@ -1,4 +1,6 @@
-
-#jumbo{
-    background: url('tech.jpg') no-repeat;
+.bg-darth-galaxy{
+	background-color: #FF8800;
+}
+.bg-vader-galaxy{
+	background-color: #3E4551;
 }
