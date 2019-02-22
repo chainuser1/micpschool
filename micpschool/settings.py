@@ -70,6 +70,7 @@ INSTALLED_APPS = [
      'login',
      'static',
      'about',
+     'mdbootstrap',
 ]
 
 MIDDLEWARE = [

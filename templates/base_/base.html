@@ -12,7 +12,12 @@
       <link rel="stylesheet" type="text/css" href="{% static "exams/css/bootstrap-reboot.min.css" %}" />
       <link rel="stylesheet" type="text/css" href="{% static "exams/css/bootstrap.min.css" %}" />
       <link rel="stylesheet" type="text/css" href="{% static "exams/css/print.min.css" %}" />
+      <link rel="stylesheet" type="text/css" href="{% static "css/mdb.min.css" %}" />
+      <link rel="stylesheet" type="text/css" href="{% static "css/mdb.lite.css" %}" />
+      <link rel="stylesheet" type="text/css" href="{% static "css/style.min.css" %}" />
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       <meta name="description" content="This is an online assesment designed to have students take their exams online.">
     {%endblock%}
 </head>
@@ -24,6 +29,8 @@
         <script type="text/javascript" src="{% static "exams/js/ajax-setup.js" %}">
         </script>
         <script type="text/javascript" src="{% static "exams/js/print.min.js" %}">
+        </script>
+        <script type="text/javascript" src="{% static "js/mdb.min.js" %}">
         </script>
    {%endblock%}
    {% block navbar %}
@@ -41,11 +48,11 @@
                 {% if request.user|has_group:'Administrator'%}
                   <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" >Administrator Dashboard</a></li>
                 {% endif %}
-                <li class="dropdown bg-info">
-                  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Quizzes
-                  </button>
-                  <div class="dropdown-menu bg-info" aria-labelledby="dropdownMenuLink">
+                  </a>
+                  <div class="dropdown-menu " aria-labelledby="dropdownMenuLink">
                     {%get_category as categories %}
                     {% for category in categories %}
                       <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
@@ -85,22 +92,10 @@
         </header>
         {%block content%}{%endblock%}
         <!-- Footer -->
-        
-        <hr/>
-        <footer class="page-footer font-medium blue" style="background-color: #00695c;width: max-height: 20px; top:40px;">
-
-        <!-- Copyright -->
-          <div class="footer-copyright text-center py-3">© 2018 Copyright:
-              <a href="#">Developed By: Jayson Ramos</a>
-          </div>
-        <!-- Copyright -->
-
-        </footer>
-        <!-- Footer -->
         <script>
           $(function(){
             var $header = $('.header');
-            scrollClass = 'bg-info';
+            scrollClass = 'elegant-color';
             activateAtY = 20;
 
             function deactivateHeader() {
@@ -124,5 +119,33 @@
             });
           })
         </script>
+    <!-- Footer -->
+<footer class="page-footer font-small unique-color-dark pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <h5 class="mb-1">Register for free</h5>
+        </li>
+        <li class="list-inline-item">
+          <a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>
+        </li>
+      </ul>
+      <!-- Call to action -->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="#developer">Jayson Ramos</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
 </body>
 </html>

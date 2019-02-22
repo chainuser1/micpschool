@@ -71,12 +71,12 @@
 					  	
 					{%endfor%}
 				</div>
-				<a class="carousel-control-prev carousel-control btn btn-primary" href="#question_id" data-slide="prev">
-    				<span class=" carousel-control-prev-icon"></span>
+				<a class="carousel-control-prev carousel-control  " href="#question_id" data-slide="prev">
+    				<span class=" carousel-control-prev-icon deep-purple accent-4"></span>
                     Previous
   				</a>
-  				<a class="carousel-control-next carousel-control btn btn-primary" href="#question_id" data-slide="next">
-    				<span class=" carousel-control-next-icon"></span>
+  				<a class="carousel-control-next carousel-control " href="#question_id" data-slide="next">
+    				<span class=" carousel-control-next-icon cyan darken-3"></span>
                     Next
   				</a>
                 
@@ -85,7 +85,7 @@
 			 <div class="mx-auto"">
                 
                 <div class="btn-group">
-                    <a class="btn btn secondary quiz-button
+                    <a class="btn btn-link quiz-button wave-effect wave-light
                                 {% if request.user|has_quiz:type %}
                                     disabled
                                 {% endif %}
@@ -96,7 +96,7 @@
                             {% if request.user|has_quiz:type %}
                                 disabled
                             {% endif %}
-                    data-rest="mz-form"class="btn btn-primary quiz-button" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
+                    data-rest="mz-form"class="btn btn-primary quiz-button wave-effect wave-light" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
                 </div>
             </div>
 			</div>
@@ -155,6 +155,11 @@
                         message=data.message
                         $("input[type='radio']").attr('disabled', 'disabled')
                         $("a.btn").addClass('disabled')
+                        var count = 5;
+                        setInterval(function(){
+                            $('body').text("Preparing results in " + (count--) + "secs");
+                            if(count == 0) cache_clear();
+                        }, 1000)
                     },
                     204: function(data){
                         message='Please answer all questions.'
@@ -173,24 +178,33 @@
             ride: false,
             direction: 'right'
         })
-
-        $(".carousel").bind("slide.bs.carousel", function(){
+        //hide these utilities
+         $(".carousel").children(".carousel-control").fadeIn()
+         $(".quiz-button").hide();
+        //buttons and utilities will show or vanish accordingly
+        $(".carousel").bind("slid.bs.carousel", function(){
             var $this = $(this);
-            $this.children(".carousel-control").show()
-            if($(".carousel-inner .item:last").hasClass('active')){
-                 $this.children('.carousel-control-prev').hide();
-            }
-            else if($(".carousel-inner .item:first").hasClass('active')){
-                $this.children('.carousel-control-next').hide();
-            }
             
-            if(!$(".carousel-inner .item:last").hasClass('active')){
-                $(".quiz-button").css({
-                    "visibility":"show",
-                })
+            if($(".carousel-inner .carousel-item:first").hasClass('active')){
+                $this.children('.carousel-control-prev').fadeOut();
             }
+            else if($(".carousel-inner .carousel-item:last").hasClass('active')){
+                 $this.children('.carousel-control-next').fadeOut();
+                 $(".quiz-button").fadeIn();
+            }
+            else{
+                $this.children(".carousel-control").fadeIn()
+                $(".quiz-button").fadeOut();
+            }
+           
         })
+
+        //reload page
+        function cache_clear(){
+            window.location.reload();
+        }
     })
+
     	
 	</script>
 	{%endblock%}

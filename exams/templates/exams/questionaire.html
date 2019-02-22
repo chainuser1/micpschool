@@ -11,7 +11,7 @@
                     
                     &nbsp;
                     <div class="">
-                        <a style="font-family: sans-serif; color: #27a6b2" id="print_q" href="#print">Print Result and Questionaire</a>
+                        <a class="" style="font-family: sans-serif; color: #27a6b2" id="print_q" href="#print">Print Result and Questionaire</a>
                     </div>
                     {% csrf_token  %}
                     {% if request.user|has_quiz:type == False %}
