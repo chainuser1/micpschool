@@ -70,7 +70,7 @@
             </div>
           </nav>
         {% endblock %}
-        <header class="masthead col-md-12" style="height 40px; background-image: url({% static 'exams/images/cs-home.jpg' %}); ">
+        <header class="masthead col-md-12" style="max-height 40px; background-image: url({% static 'exams/images/cs-home.jpg' %}); ">
           <div class="overlay"></div>
           <div class="container">
             <div class="row">
@@ -85,10 +85,9 @@
         </header>
         {%block content%}{%endblock%}
         <!-- Footer -->
-        <br>
-        <br>
+        
         <hr/>
-        <footer class="page-footer font-medium blue" style="background-color: #00695c;width: height:4%;">
+        <footer class="page-footer font-medium blue" style="background-color: #00695c;width: max-height: 20px; top:40px;">
 
         <!-- Copyright -->
           <div class="footer-copyright text-center py-3">© 2018 Copyright:
@@ -100,8 +99,8 @@
         <!-- Footer -->
         <script>
           $(function(){
-            var $header = $('.header'),
-            scrollClass = 'bg-darth-galaxy',
+            var $header = $('.header');
+            scrollClass = 'bg-info';
             activateAtY = 20;
 
             function deactivateHeader() {

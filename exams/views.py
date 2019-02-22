@@ -15,10 +15,16 @@ def index(request):
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def questionaire(request, slug):
-    questions = get_object_or_404(ICategory, slug=slug).questions.order_by('id')[:10]
-    type=get_object_or_404(ICategory, slug=slug).name
-    context= {'questions':questions, 'type':type}
-    return render(request, 'exams/question_display.html', context)
+	category = get_object_or_404(ICategory, slug=slug)
+	user = get_object_or_404(User, pk=request.user.id)
+	questions = category.questions.order_by('id')[:10]
+	type=get_object_or_404(ICategory, slug=slug).name
+	context= {'questions':questions, 'type':type}
+	if Quiz.objects.filter(category=category, student=user).exists():
+		response = render(request, 'exams/questionaire.html', context)
+	else:
+		response = render(request, 'exams/question_display.html', context)
+	return response
 
 
 @login_required(redirect_field_name='next', login_url = 'login:login_do')

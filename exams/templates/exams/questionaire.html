@@ -3,16 +3,16 @@
     {% load exams_tag %}
     {% if questions %}
         <section class="container">
-            <div class="row">
+            <div class="row col-lg-10 mx-auto">
                 
                 
                 <form class="form" method="post">
                     <h5>Questionaire:  <span class="font-italic text-info ">{{type}}</span></h5>
                     
                     &nbsp;
-                    <span class="load-message text-warning bg-light" style=" float:left;">
-                         
-                    </span>
+                    <div class="">
+                        <a style="font-family: sans-serif; color: #27a6b2" id="print_q" href="#print">Print Result and Questionaire</a>
+                    </div>
                     {% csrf_token  %}
                     {% if request.user|has_quiz:type == False %}
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -23,11 +23,11 @@
                         </div>
                         
                        {%endif%}
-                        <div class="col-lg-10 mx-auto" id="print_modal">
+                        <div class="" id="print_modal">
                             
                             <section class="form-group">
-                                <h6 class="text-secondary"> Name: <b>{{request.user.last_name}}, {{request.user.first_name}}</b></h6>
-                                <h6 class="text-secondary"> Email: <b>{{request.user.email}}</b></h6>
+                                <h4 class="text-secondary"> Name: <b>{{request.user.last_name}}, {{request.user.first_name}}</b></h4>
+                                <address class="text-secondary"> Email: <b>{{request.user.email}}</b></address>
                                 {% if request.user|has_quiz:type %}
                                     {% with request.user|get_score:type as score %}
                                     <h6 class="text-secondary"> Total Score: <b>{{score}}</b></h6>
@@ -68,23 +68,7 @@
                             <hr/>
                         {% endfor %}
                     </div>
-                    <div class="col-lg-10 mx-auto">
-                        <div class="btn-group">
-                            <a class="btn btn secondary
-                                {% if request.user|has_quiz:type %}
-                                    disabled
-                                {% endif %}
-                                "
-                                
-                            next-path="{{request.get_full_path}}" href="{% url 'exams:reset_quiz' type %}?next={{request.get_full_path}}">Reset Quiz</a>
-                            <button
-                            {% if request.user|has_quiz:type %}
-                                disabled
-                            {% endif %}
-                            data-rest="mz-form"class="btn btn-primary" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
-                            <button class="btn btn-link" id="print_q">Print Questionaire</button>
-                        </div>
-                    </div>
+                    
                     
                     
                 </form>

@@ -6,7 +6,6 @@
     <style>
         .quiz-button{
              left: 105%; right: 40%;
-             visibility: hidden;
 
         }
     </style>
@@ -15,10 +14,7 @@
 			<div class="mx-auto col-lg-10">
 				
 			<!-- Type of question -->
-			<h5>Questionaire:  <span class="font-italic text-info ">{{type}}</span></h5>      
-            &nbsp;
-            <!-- ajax display message -->
-            <span class="load-message text-warning bg-light" style=" float:left;">
+			<h5 class="heading">Questionaire:  <span class="font-italic text-info ">{{type}}&nbsp;</span><span class="load-message text-success bg-light"></h5>      
                    <!-- direction -->
 			<div class="alert alert-info alert-dismissible fade show" role="alert">
                 <strong>Good Luck!</strong> Please answer the questions carefully. Choose the correct answer. Review answers before sending
@@ -27,7 +23,7 @@
                 </button>   -->   
             </div>
             <!-- Questions in carousel -->
-			<div id="question_id" class="carousel slide col " data-ride="">
+			<div id="question_id" class="carousel slide col " data-ride="slide" data-toggle="popover" title="Questions: {{type}}" data-content="Please answer correctly." data-placement="top">
 				<!-- <ul class="carousel-indicators">
 					{%for question in questions %}
 					 {%if forloop.first %}
@@ -43,7 +39,7 @@
 					  		<!-- <img src="{%static '/exams/images/2281.jpg'%}" style="height: 300px;width:100%;"/> -->
 					  			
 					  		<!-- <div class="carousel-caption d-none d-md-block" style="color: blue;"> -->
-					  			<h6 style="padding-left:140px;padding-right: 140px; width: 100%;word-wrap: break-word; min-width: 200px;"><b>{{forloop.counter}}</b>.){{question.question_text}}</h6>
+					  			<h6 class="text-primary" style="padding-left:140px;padding-right: 140px; width: 100%;word-wrap: break-word; min-width: 200px;"><b>{{forloop.counter}}</b>.){{question.question_text}}</h6>
 					  			
 					  			<div class="form-group" style="padding-left:140px;padding-right: 140px;">
 					  			{%for answer in question.answers.all%}
@@ -83,7 +79,10 @@
     				<span class=" carousel-control-next-icon"></span>
                     Next
   				</a>
-                <div class="mast" style="padding-top: 30px;">
+                
+			</div>
+			<!-- buttons -->
+			 <div class="mx-auto"">
                 
                 <div class="btn-group">
                     <a class="btn btn secondary quiz-button
@@ -100,9 +99,6 @@
                     data-rest="mz-form"class="btn btn-primary quiz-button" data-quiz-category="{{type}}" data-href="{% url 'exams:save_quiz' type %}?next={{request.get_full_path}}">Save Quiz</button>
                 </div>
             </div>
-			</div>
-			<!-- buttons -->
-			
 			</div>
 		</div>
 		
@@ -138,6 +134,7 @@
                 },
                 success: function(data){
                     message=data.message
+                    $(".carousel").carousel('next');
                 },
                 error: function(data){
                     message=data.message
@@ -166,8 +163,10 @@
             })
         })
 
-        //hide buttons
         
+        $(".quiz-button").css({
+            "visibility":"show",
+        })
 
         $(".carousel").carousel({
             wrap:false,
