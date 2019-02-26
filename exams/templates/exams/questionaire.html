@@ -38,7 +38,7 @@
                         
                         {% for question in questions %}
                             <div class="post-preview">
-                                <p class = "text-primary alert-warning"><b>{{forloop.counter}}</b>.)  {{question.question_text }}</p>
+                                <p class = ""><b>{{forloop.counter}}</b>.)<pre class="blue-text"> {{question.question_text }}</pre></p>
                                 <div class="form-group ">
                                     {% for answer in question.answers.all %}
                                         <label class="

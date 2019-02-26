@@ -39,7 +39,7 @@
 					  		<!-- <img src="{%static '/exams/images/2281.jpg'%}" style="height: 300px;width:100%;"/> -->
 					  			
 					  		<!-- <div class="carousel-caption d-none d-md-block" style="color: blue;"> -->
-					  			<h6 class="text-primary" style="padding-left:140px;padding-right: 140px; width: 100%;word-wrap: break-word; min-width: 200px;"><b>{{forloop.counter}}</b>.){{question.question_text}}</h6>
+					  			<h6 class="text-primary" style="padding-left:140px;padding-right: 140px; width: 100%;word-wrap: break-word; min-width: 200px;"><b>{{forloop.counter}}</b>.)<pre class="deep-orange-text">{{question.question_text}}</pre></h6>
 					  			
 					  			<div class="form-group" style="padding-left:140px;padding-right: 140px;">
 					  			{%for answer in question.answers.all%}
@@ -172,12 +172,12 @@
         $(".quiz-button").css({
             "visibility":"show",
         })
-
+        //question carousel pause on start
         $(".carousel").carousel({
             wrap:false,
             ride: false,
             direction: 'right'
-        })
+        }).carousel('pause')
         //hide these utilities
          $(".carousel").children(".carousel-control").fadeIn()
          $(".quiz-button").hide();

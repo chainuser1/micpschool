@@ -54,7 +54,7 @@ class Quiz(models.Model):
     #     return "Quiz {}".format(self.quiz_num_for_student)
 
 class Question(models.Model):
-    question_text = models.CharField(max_length=1024)
+    question_text = models.TextField(null=False)
     title = models.CharField(max_length=120, null=True, blank=True)
     slug = models.SlugField(max_length=200, unique=True, null=True)
     icategory = models.ForeignKey(ICategory, related_name='questions', on_delete=models.CASCADE)

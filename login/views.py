@@ -51,6 +51,7 @@ def sign_out(request):
 
 def register(request):
     form = RegisterForm(request.POST or None)
+    response =  None
     if(request.POST and form.is_valid()):
         form.save()
         username = request.POST["username"]
@@ -58,10 +59,10 @@ def register(request):
         user = authenticate(username=username, password=password)
         login(request, user)
         if("next" in request.session):
-            redirect(request.session["next"])
+            response=redirect(request.session["next"])
         else:
-            redirect('exams:home')
+            response=redirect('master')
     else: 
-        form = RegisterForm(request.POST)
-    return render(request, 'login/register.html', {'form':form})
+        response = render(request, 'login/register.html', {'form':form})
+    return response
     
