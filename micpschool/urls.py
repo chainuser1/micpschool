@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 admin.site.site_header = 'MICP Academy Admin'
 admin.site.site_title = 'MICP Academy Admin'
@@ -33,4 +33,4 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('login/', include('login.urls')),
     path('about/', include('about.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,7 +2,38 @@
 {%block title%}<title>MICP Online Academy</title>{%endblock%}
 {%block content%}
 {%load static%}
+
+<style>
+  .center{
+    margin: auto;
+    width: 50%;
+    border: none;
+    padding: 10px;
+  }
+</style>
 <link rel="stylesheet" href="{%static 'slick/slick.css'%}" />
 <link rel="stylesheet" href="{%static 'slick/slick-theme.css'%}" />
 <script type="text/javascript" src="{%static 'slick/slick.min.js'%}"></script>
+<div class="container">
+  <div class="row" style="align-items: center">
+    <div class="col-md-7 center">
+      <div class="image-carousel" data-slick=''>
+        {%for image in images%}
+          <img src="{{image.file}}" alt="{{image.title}}" />
+        {%endfor%}
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+  $(".image-carousel").slick({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear'
+  });
+})
+</script>
 {%endblock%}

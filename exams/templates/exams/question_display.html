@@ -40,7 +40,7 @@
 					  		<!-- <img src="{%static '/exams/images/2281.jpg'%}" style="height: 300px;width:100%;"/> -->
 					  			
 					  		<!-- <div class="carousel-caption d-none d-md-block" style="color: blue;"> -->
-					  			<h6 class="text-primary" style="padding-left:140px;padding-right: 140px; width: 100%;word-wrap: break-word; min-width: 200px;"><b>{{forloop.counter}}</b>.)<pre class="deep-orange-text">{{question.question_text}}</pre></h6>
+					  			<h6 class="text-primary" style="padding-left:140px;padding-right: 140px; width: 100%;word-wrap: break-word; min-width: 200px;"><b>{{forloop.counter}}</b>.){{question.question_text|linebreaksbr}}</h6>
 					  			
 					  			<div class="form-group" style="padding-left:140px;padding-right: 140px;">
 					  			{%for answer in question.answers.all%}
@@ -60,7 +60,12 @@
                                                 disabled
                                             {% endif %}
                                             data-href="{% url 'exams:answer-question' user.id %}">
-                                            <span>{{answer.answer_text}}</span>
+                                            <pre class="{%if request.user|has_quiz:type%}
+                                            {% with answer.id|reveal_answer as revelation%}
+                                            {{revelation}}
+                                            {%endwith%}
+                                            {%endif%}"
+                                              style="float:right; position:relative;">{{answer.answer_text}}</pre>
                                         </label>
 
                                         <br>

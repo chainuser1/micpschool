@@ -3,16 +3,17 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .models import ICategory, Question, Answer, QuestionResponse, Quiz
+from .models import ICategory, Question, Answer, QuestionResponse, Quiz, CarouselIndex
 from django.http import JsonResponse
 # from django.views import generic
 # Create your views here.
 
-
+# shows the exams home page
 def index(request):
-    return render(request, 'exams/index.html')
+	context = {'images': CarouselIndex.objects.all()}
+	return render(request, 'exams/index.html', context)
 
-
+# pulls out questions for the chosen category
 @login_required(redirect_field_name='next', login_url = 'login:login_do')
 def questionaire(request, slug):
 	category = get_object_or_404(ICategory, slug=slug)

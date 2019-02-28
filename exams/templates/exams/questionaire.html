@@ -39,16 +39,10 @@
                         
                         {% for question in questions %}
                             <div class="post-preview">
-                                <p class = ""><b>{{forloop.counter}}</b>.)<pre class="blue-text"> {{question.question_text }}</pre></p>
+                                <p class = "blue-text">{{forloop.counter}}.){{question.question_text|linebreaksbr }}</p>
                                 <div class="form-group ">
                                     {% for answer in question.answers.all %}
-                                        <label class="
-                                            {%if request.user|has_quiz:type%}
-                                            {% with answer.id|reveal_answer as revelation%}
-                                            {{revelation}}
-                                            {%endwith%}
-                                            {%endif%}
-                                            " for="{{answer.id}}">
+                                        <label for="{{answer.id}}">
                                             <input type="radio" id="{{answer.id}}" name="{{question.id}}"
                                             data-answer="{{answer.id}}"
                                             {% if request.user|is_answer:answer.id %}
@@ -58,7 +52,12 @@
                                                 disabled
                                             {% endif %}
                                             data-href="{% url 'exams:answer-question' user.id %}">
-                                            <span>{{answer.answer_text}}</span>
+                                            <pre class="{%if request.user|has_quiz:type%}
+                                            {% with answer.id|reveal_answer as revelation%}
+                                            {{revelation}}
+                                            {%endwith%}
+                                            {%endif%}"
+                                              style="float:right; position:relative;">{{answer.answer_text}}</pre>
                                         </label>
                                         
                                         <br>
