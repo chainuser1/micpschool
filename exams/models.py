@@ -103,4 +103,13 @@ class QuestionResponse(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="response")
     answer = models.ForeignKey(Answer,  on_delete=models.CASCADE, related_name="response")
     # attempt_number = models.PositiveSmallIntegerField(blank=True, null=True)
+
+# for uploading images for index page
+class CarouselIndex(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    file = models.ImageField(upload_to='carousel_index')
+    description = models.CharField(max_length=200, null=True)
     
+    def __str__(self):
+        return self.title

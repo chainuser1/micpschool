@@ -1,10 +1,12 @@
 from django.contrib import admin
-from .models import ICategory, Question, Answer, QuestionResponse
+from .models import ICategory, Question, Answer, QuestionResponse, CarouselIndex
 from django.contrib.auth.models import User
 import csv
-from django import forms
 import datetime
 from django.http import HttpResponse
+from .forms import CarouselIndexForm
+import pickle
+from django.utils.html import mark_safe
 
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
@@ -42,11 +44,7 @@ export_to_csv.short_description = 'Export to CSV'
 class AnswerInline(admin.TabularInline):
     model = Answer
 
-class QuestionForm(forms.ModelForm):
-    question_text = forms.CharField(widget=forms.Textarea())
-    class Meta:
-        model=Question
-        fields = ['question_text']
+
         
 
 class QuestionAdmin(admin.ModelAdmin):
@@ -66,5 +64,23 @@ class ICategoryAdmin(admin.ModelAdmin):
     list_editable = ['published']
     search_fields = ['name']
 
+class CarouselIndexAdmin(admin.ModelAdmin):
+   
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(CarouselIndexAdmin, self).get_form(request, obj, **kwargs)
+        form.base_fields['user'].initial = request.user
+        return form
+
+    readonly_fields = ["headshot_image"]
+
+    def headshot_image(self, obj):
+        return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+            url = obj.headshot.url,
+            width=obj.headshot.width,
+            height=obj.headshot.height,
+            )
+        )
+
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(ICategory, ICategoryAdmin)
+admin.site.register(CarouselIndex, CarouselIndexAdmin)

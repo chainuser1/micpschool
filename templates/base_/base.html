@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	 {% block assets %}
-      {% block title %}<title>MICP Online Academy</title>{% endblock %}
+      {% block title %}{% endblock %}
       {% load static %}
       {% load exams_tag %}
       <link rel="stylesheet" type="text/css" href="{% static "exams/css/style.css" %}" />
@@ -24,6 +24,8 @@
 <body data-spy="scroll" data-target="#aboutUs" data-offset="1">
   {% block scripts %}
         <script type="text/javascript" src="{% static "exams/js/jquery-3.3.1.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/popper.min.js" %}">
+        </script>
         <script type="text/javascript" src="{% static "exams/js/bootstrap.bundle.min.js" %}"></script>
         <script type="text/javascript" src="{% static "exams/js/bootstrap.min.js" %}"></script>
         <script type="text/javascript" src="{% static "exams/js/ajax-setup.js" %}">
@@ -32,6 +34,7 @@
         </script>
         <script type="text/javascript" src="{% static "js/mdb.min.js" %}">
         </script>
+
    {%endblock%}
    {% block navbar %}
           <nav class="navbar navbar-expand-lg navbar-light fixed-top header" id="mainNav" style="position: fixed; height: 4em;">
@@ -52,11 +55,11 @@
                   <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Quizzes
                   </a>
-                  <div class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                  <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" id="quiz_menu">
+                  
                     {%get_category as categories %}
                     {% for category in categories %}
-                      <a class="dropdown-item" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
-                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item mdb-dropdownLink" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
                     {% endfor %}
                     
                   </div>
@@ -94,6 +97,8 @@
         <!-- Footer -->
         <script>
           $(function(){
+          	
+
             var $header = $('.header');
             scrollClass = 'elegant-color';
             activateAtY = 20;
