@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 admin.site.site_header = 'MICP Academy Admin'
 admin.site.site_title = 'MICP Academy Admin'
@@ -25,11 +27,10 @@ admin.empty_value_display = '**Empty**'
 
 
 urlpatterns = [
-
     path('admin/site', admin.site.urls, name='admin'),
     path('', views.master, name='master'),
     path('exams/', include('exams.urls')),
     path('news/', include('news.urls')),
     path('login/', include('login.urls')),
     path('about/', include('about.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
