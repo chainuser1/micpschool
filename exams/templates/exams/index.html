@@ -19,7 +19,7 @@
     <div class="col-md-7 center">
       <div class="image-carousel" data-slick=''>
         {%for image in images%}
-          <img src="{{image.file}}" alt="{{image.title}}" />
+          <img src="{{image.file.url}}" alt="{{image.title}}" description="{{image.description}}"/>
         {%endfor%}
       </div>
     </div>
@@ -27,12 +27,16 @@
 </div>
 <script type="text/javascript">
 $(function(){
+  var total = $('.image-carousel img').length, // get the number of slides
+  rand = Math.floor( Math.random() * total ); // random number
   $(".image-carousel").slick({
+    autoplay:true,
     dots: true,
     infinite: true,
     speed: 500,
     fade: true,
-    cssEase: 'linear'
+    cssEase: 'linear',
+    initialSlide: rand,
   });
 })
 </script>

@@ -111,5 +111,12 @@ class CarouselIndex(models.Model):
     file = models.ImageField(upload_to='carousel_index')
     description = models.CharField(max_length=200, null=True)
     
+    class Meta:
+        verbose_name = 'carousel index'
+        verbose_name_plural ='carousel indices'
+
     def __str__(self):
         return self.title
+
+    def __unicode__(self):
+        return self.file
