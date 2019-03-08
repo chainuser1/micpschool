@@ -30,7 +30,7 @@ class ICategory(models.Model):
             self.slug = orig = slugify(self.name)[:max_length]
 
             for x in itertools.count(1):
-                if not Question.objects.filter(slug=self.slug).exists():
+                if not ICategory.objects.filter(slug=self.slug).exists():
                     break
 
                 # Truncate the original slug dynamically. Minus 1 for the hyphen.

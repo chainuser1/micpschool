@@ -4,4 +4,6 @@ from django.contrib import admin
 from . import views
 
 app_name="news"
-urlpatterns = []
+urlpatterns = [
+	
+]

@@ -9,6 +9,7 @@
     width: 50%;
     border: none;
     padding: 10px;
+    height: 30%;
   }
   .glowing-1{
     -webkit-box-shadow: 1px 1px 1px 1px #74BBCC;
@@ -21,7 +22,7 @@
 <script type="text/javascript" src="{%static 'slick/slick.min.js'%}"></script>
 <div class="container">
   <div class="row" style="align-items: center">
-    <div class="col-md-7 center ">
+    <div class="col-md-6 center ">
       <div class="image-carousel glowing-1" data-slick=''>
         {%for image in images%}
           <img class="" src="{{MEDIA_URL}}{{image.file}}" alt="{{image.title}}" description="{{image.description}}"/>

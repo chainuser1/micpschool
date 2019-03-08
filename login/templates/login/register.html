@@ -1,5 +1,6 @@
 {% extends 'login/index.html'%}
 {% block title %}<title>Academy: Sign Up</title>{% endblock %}
+{%load static%}
 {% block content %}
 	<div class="limiter">
 		<div class="container-login100">
@@ -10,7 +11,7 @@
 						Register
 					</span>
 					<span class="login100-form-title p-b-20">
-						<i class="zmdi zmdi-font">CADEMY</i>
+						<img src="{% static 'exams/images/micp-site.ico'%}" style="width:3em; height 3em;"/>
 					</span>
 					<div class="form-group wrap-input100 validate-input">
 						<label for="examInputUsername">Username</label>
@@ -56,10 +57,17 @@
 						{% endif %}
 					</div>
 					<div class="form-check wrap-input100 validate-input">
-						<input type="checkbox" class="form-check-input" id="examleCheck1">
-						<label class="form-check-label" for="examCheck1">Check me out</label>
+						<input type="checkbox" class="form-check-input" id="examleCheck1" checked disabled>
+						<label class="form-check-label" for="examCheck1">Agree to Abide</label>
 					</div>
-					<button type="submit" class="btn btn-primary">Register</button>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Register
+							</button>
+						</div>
+					</div>
 					<div class="text-center p-t-115">
 						<span class="txt1">
 							Already have an account?
