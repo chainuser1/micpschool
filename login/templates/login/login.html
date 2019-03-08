@@ -4,7 +4,7 @@
 {% load static %}
 
 	<div class="limiter">
-		{% if form.non_field_errors %}
+	{% if form.non_field_errors %}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -15,7 +15,6 @@
                 <li>{{ error }}</li>
            {% endfor %}
            </ul>
-           
        </div>
     {% endif %}
 		<div class="container-login100">
@@ -27,7 +26,7 @@
 						Login
 					</span>
 					<span class="login100-form-title p-b-48">
-						<img src="{% static 'images/micp-site.ico'%}" style="width:3em; height 3em;"/>
+						<img src="{% static 'exams/images/micp-site.ico'%}" style="width:3em; height 3em;"/>
 					</span>
 					<div class="wrap-input100 validate-input" data-validate = "Valid username is: samplefe123">
 						{% if form.username.errors %}

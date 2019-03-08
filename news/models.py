@@ -25,8 +25,25 @@ class News(models.Model):
 				self.slug = "%s-%d" % (orig[:max_length - len(str(x)) - 1], x)
 		return super(News, self).save(*args, **kwargs)
 
+	def __str__(self):
+		return self.title.cap_words()
+
+	def __str__(self):
+		return self.content
+
+	class Meta:
+		verbose_name='News'
+		verbose_name_plural='News'
+
 #=>media upload
 class Media(models.Model):
 	news  = models.ForeignKey(News, on_delete=models.CASCADE, default=None)
 	file = models.ImageField(upload_to='news_media', blank=True)
-	description = models.CharField(max_length=300)
+	description = models.CharField(max_length=300, default=None)
+
+
+# comments for article
+class Comment(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+	news = models.ForeignKey(News, on_delete=models.CASCADE, default=None)
+	text = models.CharField(max_length=500, default=None)
