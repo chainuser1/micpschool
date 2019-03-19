@@ -46,7 +46,7 @@
             <div div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{% url 'master' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#news-developing">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="#news-developing">Blogs</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about:view_page' %}">About</a></li>
                 {% if request.user|has_group:'Administrator'%}
                   <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" >Administrator Dashboard</a></li>

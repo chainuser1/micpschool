@@ -6,8 +6,8 @@ import itertools
 import string
 
 # Create your models here.
-class News(models.Model):
-	publisher = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name="news")
+class Article(models.Model):
+	publisher = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name="articles")
 	title = models.CharField(max_length=200, default=None)
 	content = models.TextField(default=None)
 	slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
@@ -32,18 +32,18 @@ class News(models.Model):
 		return self.content
 
 	class Meta:
-		verbose_name='News'
-		verbose_name_plural='News'
+		verbose_name='Article'
+		verbose_name_plural='Articles'
 
 #=>media upload
 class Media(models.Model):
-	news  = models.ForeignKey(News, on_delete=models.CASCADE, default=None)
+	article  = models.ForeignKey(Article, on_delete=models.CASCADE, default=None)
 	file = models.ImageField(upload_to='news_media', blank=True)
 	description = models.CharField(max_length=300, default=None)
 
 
 # comments for article
 class Comment(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-	news = models.ForeignKey(News, on_delete=models.CASCADE, default=None)
+	user = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name="comments")
+	article = models.ForeignKey(Article, on_delete=models.CASCADE, default=None, related_name="comments")
 	text = models.CharField(max_length=500, default=None)
