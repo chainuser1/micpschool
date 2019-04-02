@@ -30,7 +30,7 @@ urlpatterns = [
     path('admin/site', admin.site.urls, name='admin'),
     path('', views.master, name='master'),
     path('exams/', include('exams.urls')),
-    path('news/', include('news.urls')),
+    path('articles/', include('news.urls')),
     path('login/', include('login.urls')),
     path('about/', include('about.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
