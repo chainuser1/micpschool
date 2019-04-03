@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.utils import timezone
 import itertools
+from django.conf import settings
 # Create your models here.
 
 
@@ -39,7 +40,7 @@ class ICategory(models.Model):
         return super(ICategory, self).save(*args, **kwargs)
 
 class Quiz(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name='quizzes')
+    student = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None, related_name='quizzes')
     category = models.ForeignKey(ICategory, on_delete=models.CASCADE, default=None)
     # quiz_num_for_student = models.IntegerField(default=0)
     #question_ids = models.TextField(default=None)
@@ -98,7 +99,7 @@ class Answer(models.Model):
         return self.correct
 
 class QuestionResponse(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="responses")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="responses")
     # quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="responses", null=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="response")
     answer = models.ForeignKey(Answer,  on_delete=models.CASCADE, related_name="response")
@@ -106,7 +107,7 @@ class QuestionResponse(models.Model):
 
 # for uploading images for index page
 class CarouselIndex(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     file = models.ImageField(upload_to='carousel_index')
     description = models.CharField(max_length=200, null=True)

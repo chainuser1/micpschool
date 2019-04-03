@@ -4,10 +4,10 @@ from django.utils import timezone
 from django.utils.text import slugify
 import itertools, string
 import string
-
+from django.conf import settings
 # Create your models here.
 class Article(models.Model):
-	publisher = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name="articles")
+	publisher = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None, related_name="articles")
 	title = models.CharField(max_length=200, default=None)
 	content = models.TextField(default=None)
 	slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
@@ -42,6 +42,6 @@ class Media(models.Model):
 
 # comments for article
 class Comment(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE, default=None, related_name="comments")
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None, related_name="comments")
 	article = models.ForeignKey(Article, on_delete=models.CASCADE, default=None, related_name="comments")
 	text = models.CharField(max_length=500, default=None)
