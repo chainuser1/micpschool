@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.text import slugify
-import itertools
+import itertools, string
 import string
 
 # Create your models here.
@@ -19,17 +19,15 @@ class Article(models.Model):
 			max_length = 200
 			self.slug = orig = slugify(self.title)[:max_length]
 			for x in itertools.count(1):
-				if not News.objects.filter(slug=self.slug).exists():
+				if not Article.objects.filter(slug=self.slug).exists():
 					break
 				# Truncate the original slug dynamically. Minus 1 for the hyphen
 				self.slug = "%s-%d" % (orig[:max_length - len(str(x)) - 1], x)
-		return super(News, self).save(*args, **kwargs)
+		return super(Article, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return self.title.cap_words()
+		return string.capwords(self.title)
 
-	def __str__(self):
-		return self.content
 
 	class Meta:
 		verbose_name='Article'

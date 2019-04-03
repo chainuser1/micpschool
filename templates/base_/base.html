@@ -21,7 +21,7 @@
       <meta name="description" content="This is an online assesment designed to have students take their exams online.">
     {%endblock%}
 </head>
-<body data-spy="scroll" data-target="#aboutUs" data-offset="1">
+<body data-spy="scroll" data-target="#aboutUs" data-offset="1" class="stylish-color">
   {% block scripts %}
         <script type="text/javascript" src="{% static "exams/js/jquery-3.3.1.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/popper.min.js" %}">
@@ -46,7 +46,7 @@
             <div div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{% url 'master' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#news-developing">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{%url 'article:articles'%}">Blogs</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about:view_page' %}">About</a></li>
                 {% if request.user|has_group:'Administrator'%}
                   <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}" >Administrator Dashboard</a></li>

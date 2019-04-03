@@ -2,9 +2,20 @@
 {%block title%}<title>MICP: Tech Articles</title>{%endblock%}
 {%block content%}
 {%load static%}
+{%load articles_tag%}
 <div class="container">
-	<div class="row justify-content-center">
+	<div class="row justify-content-center ">
 		{%for article in page_obj%}
+		<div class="col">
+			<div class="media text-white {% cycle 'special-color' 'stylish-color' %}">
+				<img class="mr-3" src="..." alt="Generic placeholder image">
+				<div class="media-body">
+					<h5 class="mt-0 {% cycle 'teal-text' 'cyan-text'%}">{{article.title|capitalize}}</h5>
+					<p style="text-indent: -2em;">{{article.content|mortify|linebreaks}}</p>
+					<a class="">Read More >></a>
+				</div>
+			</div>
+		</div>
 		{%endfor%}
 	</div>
 </div>
