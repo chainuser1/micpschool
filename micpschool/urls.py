@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 admin.site.site_header = 'MICP Academy Admin'
 admin.site.site_title = 'MICP Academy Admin'
-admin.site.site_url = 'http://chainuser1.pythonanywhere.com/'
+admin.site.site_url = '/'
 admin.site.index_title = 'MICP Academy Admin'
 admin.empty_value_display = '**Empty**'
 

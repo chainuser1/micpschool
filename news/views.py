@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 from .models import Article, Media, Comment
 from django.core.paginator import Paginator
 
+
 def index(request):
 	articles_list = Article.objects.all()
-	paginator = Paginator(articles_list, 10)#10 articles per page
+	paginator = Paginator(articles_list, 6)#6 articles per page
 	page = request.GET.get('page')
 	articles = paginator.get_page(page)
 	return render(request, 'articles/index.html', {'page_obj':articles})
