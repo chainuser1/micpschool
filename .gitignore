@@ -2,3 +2,4 @@
 /share/*
 /lib/*
 /include/*
+!requirements.txt
