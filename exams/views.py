@@ -86,5 +86,5 @@ def save_quiz(request, name):
 		except Quiz.DoesNotExist:
 			quiz=student.quizzes.create(category=category, num_questions=num_of_questions, final_score=final_score)
 			quiz.save()
-		return JsonResponse({'message':'Score is %d'%(final_score) ,status=200})
+		return JsonResponse({'message':'Score is %d'%(final_score)} ,status=200)
 			
