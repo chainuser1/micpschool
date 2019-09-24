@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	 {% block assets %}
+  <head>
+    {% block assets %}
       {% block title %}{% endblock %}
       {% load static %}
       {% load exams_tag %}
@@ -19,10 +19,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <meta name="description" content="This is an online assesment designed to have students take their exams online.">
-    {%endblock%}
-</head>
-<body data-spy="scroll" data-target="#aboutUs" data-offset="1" class="white">
-  {% block scripts %}
+      {%endblock%}
+    </head>
+    <body data-spy="scroll" data-target="#aboutUs" data-offset="1" class="white">
+      {% block scripts %}
         <script type="text/javascript" src="{% static "exams/js/jquery-3.3.1.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/popper.min.js" %}">
         </script>
@@ -34,9 +34,8 @@
         </script>
         <script type="text/javascript" src="{% static "js/mdb.min.js" %}">
         </script>
-
-   {%endblock%}
-   {% block navbar %}
+        {%endblock%}
+        {% block navbar %}
           <nav class="navbar fixed-top navbar-expand-lg navbar-light orange scrolling-navbar" id="mainNav" style="position: fixed; height: 4em;">
             <a class="navbar-brand" href="#"><img src="{% static "exams/images/micp-site.ico" %}" style="width: 1.5em; height: 1.5em; padding-right: 5px;"/>MIC-P Academy</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,10 +52,10 @@
                 {% endif %}
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Quizzes
+                    Quizzes
                   </a>
                   <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" id="quiz_menu">
-                  
+                    
                     {%get_category as categories %}
                     {% for category in categories %}
                       <a class="dropdown-item mdb-dropdownLink" href="{% url 'exams:questionaire' category.slug %}">{{ category.name }}</a>
@@ -99,64 +98,55 @@
         {%block content%}{%endblock%}
         <!-- Footer -->
         <script>
-          $(function(){
-          	
-
-            var $header = $('.header');
-            scrollClass = 'red-color';
-            activateAtY = 20;
-
-            function deactivateHeader() {
-              if (!$header.hasClass(scrollClass)) {
-                $header.addClass(scrollClass);
-              }
-            }
-
-            function activateHeader() {
-              if ($header.hasClass(scrollClass)) {
-                $header.removeClass(scrollClass);
-              }
-            }
-
-            $(window).scroll(function(e) {
-              if($(window).scrollTop() > activateAtY) {
-                deactivateHeader();
-              } else {
-              activateHeader();
-              }
-            });
-          })
+        $(function(){
+          
+        var $header = $('.header');
+        scrollClass = 'red-color';
+        activateAtY = 20;
+        function deactivateHeader() {
+        if (!$header.hasClass(scrollClass)) {
+        $header.addClass(scrollClass);
+        }
+        }
+        function activateHeader() {
+        if ($header.hasClass(scrollClass)) {
+        $header.removeClass(scrollClass);
+        }
+        }
+        $(window).scroll(function(e) {
+        if($(window).scrollTop() > activateAtY) {
+        deactivateHeader();
+        } else {
+        activateHeader();
+        }
+        });
+        })
         </script>
-    <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark pt-4">
-
-    <!-- Footer Elements -->
-    <div class="container">
-
-      <!-- Call to action -->
-      <ul class="list-unstyled list-inline text-center py-2">
-        
-        {%if user.is_authenticated == False %}
-        	<li class="list-inline-item">
-          		<h5 class="mb-1">Register for free</h5>
-        	</li>
-        	<li class="list-inline-item">
-          		<a href="{% url 'login:lico_register' %}" class="btn btn-outline-white btn-rounded">Sign up!</a>
-        	</li>
-        {%endif%}
-      </ul>
-      <!-- Call to action -->
-
-    </div>
-    <!-- Footer Elements -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="#developer">Jayson Ramos</a>
-    </div>
-    <!-- Copyright -->
-
-  </footer>
-  <!-- Footer -->
-</body>
-</html>
+        <!-- Footer -->
+        <footer class="page-footer font-small unique-color-dark pt-4">
+          <!-- Footer Elements -->
+          <div class="container">
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+              
+              {%if user.is_authenticated == False %}
+              <li class="list-inline-item">
+                <h5 class="mb-1">Register for free</h5>
+              </li>
+              <li class="list-inline-item">
+                <a href="{% url 'login:lico_register' %}" class="btn btn-outline-white btn-rounded">Sign up!</a>
+              </li>
+              {%endif%}
+            </ul>
+            <!-- Call to action -->
+          </div>
+          <!-- Footer Elements -->
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="#developer">Jayson Ramos</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+      </body>
+    </html>

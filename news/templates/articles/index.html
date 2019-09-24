@@ -4,41 +4,38 @@
 {%load static%}
 {%load articles_tag%}
 <style>
-::-webkit-scrollbar {
-    width: 12px;
-}
- 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
-}
- 
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
+
 .media{
-	border-radius:3%;
-	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); */
+	overflow-y:auto;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+p.article{
+	font-style: italic;
+	text-indent: 10px;
+	word-wrap: break-word;
+	text-align:justify; 
+}
+img{
+    border 1px 1px 1px 1px;
+    border-radius: 20%;
+	height:30%;
+	position: block relative;
+	width: 30%;
 }
 </style>
 <div class="container">
 	<div class="row justify-content-center ">
 		{%for article in page_obj%}
-		<div class="col-6 col-sm-4" style="padding-left:1%; padding-bottom:1%; max-height:340px; min-height:340px; overflow-y:auto;">
-			<div class="media text-white {% cycle 'elegant-color-dark' 'stylish-color' %}">
-				
-				
-				  <img class="d-flex mr-3" src="{{MEDIA_URL}}{{article.media.url}}" alt="{{article.title}}">
-				
-				
+			<div class=" col-6 col-sm-4 media text-white {% cycle 'elegant-color-dark' 'stylish-color' %}">
+				  <img class="" src="{{MEDIA_URL}}{{article.id|media_url}}" alt="image">
+			    
 				<div class="media-body">
-					<h6 class="mt-0 font-weight-bold {% cycle 'teal-text' 'cyan-text'%}">{{article.title|shorten_title|capitalize}}</h6>
-					<p style="text-indent: -2em;">{{article.content|mortify|linebreaks}}</p>
+					<h6 class="mt-0 font-weight-bold {% cycle 'orange-text' 'cyan-text'%}">{{article.title|shorten_title|capitalize}}</h6>
+					<p class="article">{{article.content|mortify|linebreaks}}</p>
 					<a class="">Read More >></a>
 				</div>
 			</div>
-		</div>
 		{%endfor%}
 	</div>
 </div>

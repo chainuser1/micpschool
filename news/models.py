@@ -36,18 +36,21 @@ class Article(models.Model):
 #media upload
 class Media(models.Model):
 	article  = models.ForeignKey(Article, on_delete=models.CASCADE, default=None, related_name="media")
-	file = models.ImageField(upload_to='news_media', blank=True)
+	file = models.ImageField(upload_to='news_media')
 	description = models.CharField(max_length=300, default=None)
 
 	class Meta:
 		verbose_name='medium'
 		verbose_name_plural='media'
 
+	def __str__(self):
+		return self.description
+
 	def __unicode__(self):
 		return self.file
 
-	def __str__(self):
-		return self.description
+	def file_url(self):
+		return self.file.url
 
 # comments for article
 class Comment(models.Model):

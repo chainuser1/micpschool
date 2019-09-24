@@ -19,4 +19,6 @@ def shorten_title(title):
 @register.filter(name='media_url')
 def get_media_url(article_id):
 	article=get_object_or_404(Article, pk=article_id)
-	return article.media.file.url
+	media = article.media.all()
+	for medium in media:
+		return medium.file
