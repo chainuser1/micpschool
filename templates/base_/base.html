@@ -37,7 +37,7 @@
 
    {%endblock%}
    {% block navbar %}
-          <nav class="navbar navbar-expand-lg navbar-light fixed-top header" id="mainNav" style="position: fixed; height: 4em;">
+          <nav class="navbar fixed-top navbar-expand-lg navbar-light orange scrolling-navbar" id="mainNav" style="position: fixed; height: 4em;">
             <a class="navbar-brand" href="#"><img src="{% static "exams/images/micp-site.ico" %}" style="width: 1.5em; height: 1.5em; padding-right: 5px;"/>MIC-P Academy</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
@@ -66,12 +66,15 @@
                 </li>
               </ul>
               {% if user.is_authenticated ==  False %}
-                <form class="form-inline my-2 my-lg-0" name="authenticate" action="{% url 'login:lico_auth' %}" method="post">
+                <!-- <form class="form-inline my-2" name="authenticate" action="{% url 'login:lico_auth' %}" method="post">
                   {% csrf_token %}
-                  <input class="form-control mr-sm-2" type="text" placeholder="Email Address" name="username"/>
-                  <input class="form-control mr-sm-2" type="password" placeholder="***************" name="password"/>
+                  <input class="form-control" type="text" placeholder="Email Address" name="username"/>
+                  <input class="form-control" type="password" placeholder="***************" name="password"/>
                   <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Sign In"/>
-                </form>
+                </form> -->
+                <ul class="navbar-nav navbar-right">
+                  <li class="nav-item"><a class="nav-link" href="{% url 'login:login_do'%}">Sign In </a></li>
+                </ul>
               {% else %}
                 <ul class="navbar-nav navbar-right">
                   <li class="nav-item"><a class="nav-link" href="{% url 'login:lico_logout'%}">Sign Out ({{user.username}})</a></li>
@@ -80,7 +83,7 @@
             </div>
           </nav>
         {% endblock %}
-        <header class="masthead col-md-12" style="max-height 40px; background-image: url({% static 'exams/images/cs-home.jpg' %}); ">
+        <header class="masthead col-md-12 elegant-color" style="max-height 40px; background-image: url({% static 'exams/images/cs-home.jpg' %}); ">
           <div class="overlay"></div>
           <div class="container">
             <div class="row">
@@ -100,7 +103,7 @@
           	
 
             var $header = $('.header');
-            scrollClass = 'elegant-color';
+            scrollClass = 'red-color';
             activateAtY = 20;
 
             function deactivateHeader() {

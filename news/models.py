@@ -35,7 +35,7 @@ class Article(models.Model):
 
 #media upload
 class Media(models.Model):
-	article  = models.ForeignKey(Article, on_delete=models.CASCADE)
+	article  = models.ForeignKey(Article, on_delete=models.CASCADE, default=None, related_name="media")
 	file = models.ImageField(upload_to='news_media', blank=True)
 	description = models.CharField(max_length=300, default=None)
 

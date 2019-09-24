@@ -28,7 +28,9 @@
 		<div class="col-6 col-sm-4" style="padding-left:1%; padding-bottom:1%; max-height:340px; min-height:340px; overflow-y:auto;">
 			<div class="media text-white {% cycle 'elegant-color-dark' 'stylish-color' %}">
 				
-				<img class="d-flex mr-3" src="{{MEDIA_URL}}news_media/" alt="image">
+				
+				  <img class="d-flex mr-3" src="{{MEDIA_URL}}{{article.media.url}}" alt="{{article.title}}">
+				
 				
 				<div class="media-body">
 					<h6 class="mt-0 font-weight-bold {% cycle 'teal-text' 'cyan-text'%}">{{article.title|shorten_title|capitalize}}</h6>

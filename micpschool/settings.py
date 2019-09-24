@@ -66,8 +66,8 @@ INSTALLED_APPS = [
     #'haystack',
     'mdbootstrap',
     'django_humanize',
-    'django_ajax',
-    'bootstrap4',
+    #'django_ajax',
+    #'bootstrap4',
     'slickv1',
     #apps
      'news',
